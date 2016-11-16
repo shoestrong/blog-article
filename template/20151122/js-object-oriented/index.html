@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>Javascript 面向对象编程 | Shoestrong&#39;s blog | 小闯的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#396">
+  
+  
+  <meta name="keywords" content="js">
+  <meta name="description" content="我们知道Javascript中的变量定义基本如下：
+123456789var name = &amp;apos;Chen Hao&amp;apos;;var email = &amp;apos;haoel(@)hotmail.com&amp;apos;;var website = &amp;apos;http://coolshell.cn&amp;apos;;　　如果要用对象来写的话，就是下面这个样子：var chenhao = &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript 面向对象编程">
+<meta property="og:url" content="http://yoursite.com/template/20151122/js-object-oriented/index.html">
+<meta property="og:site_name" content="Shoestrong's blog">
+<meta property="og:description" content="我们知道Javascript中的变量定义基本如下：
+123456789var name = &amp;apos;Chen Hao&amp;apos;;var email = &amp;apos;haoel(@)hotmail.com&amp;apos;;var website = &amp;apos;http://coolshell.cn&amp;apos;;　　如果要用对象来写的话，就是下面这个样子：var chenhao = &amp;#123;">
+<meta property="og:updated_time" content="2016-11-16T07:50:16.421Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript 面向对象编程">
+<meta name="twitter:description" content="我们知道Javascript中的变量定义基本如下：
+123456789var name = &amp;apos;Chen Hao&amp;apos;;var email = &amp;apos;haoel(@)hotmail.com&amp;apos;;var website = &amp;apos;http://coolshell.cn&amp;apos;;　　如果要用对象来写的话，就是下面这个样子：var chenhao = &amp;#123;">
+  
+    <link rel="alternative" href="/atom.xml" title="Shoestrong&#39;s blog" type="application/atom+xml">
+  
+  <meta name="summary" content="shoestrong,小闯,小闯的博客,shoestrong&#39;s blog,前端,前端开发">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="http://shoestrong.cc" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Shoestrong</h5>
+          <a href="mailto:zqc_2007@yeah.net" title="zqc_2007@yeah.net" class="mail">zqc_2007@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Shoestrong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p>Shoestrong&#39;s blog &copy; 2016</p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Javascript 面向对象编程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">Javascript 面向对象编程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-11-21T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2015-11-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性配置-–-Object-defineProperty"><span class="post-toc-number">1.</span> <span class="post-toc-text">属性配置 – Object.defineProperty</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查看对象属性配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">查看对象属性配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#call-apply-bind-和-this"><span class="post-toc-number">3.</span> <span class="post-toc-text">call, apply, bind 和 this</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承-和-重载"><span class="post-toc-number">4.</span> <span class="post-toc-text">继承 和 重载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组合"><span class="post-toc-number">5.</span> <span class="post-toc-text">组合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Prototype-和-继承"><span class="post-toc-number">6.</span> <span class="post-toc-text">Prototype 和 继承</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#兼容性"><span class="post-toc-number">7.</span> <span class="post-toc-text">兼容性</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-js-object-oriented" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Javascript 面向对象编程</h1>
+        <div class="post-meta">
+            <time datetime="2015-11-21T16:00:00.000Z" itemprop="datePublished" class="post-time">
+  2015-11-22
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>我们知道Javascript中的变量定义基本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var name = &apos;Chen Hao&apos;;</div><div class="line">var email = &apos;haoel(@)hotmail.com&apos;;</div><div class="line">var website = &apos;http://coolshell.cn&apos;;</div><div class="line">　　如果要用对象来写的话，就是下面这个样子：</div><div class="line">var chenhao = &#123;</div><div class="line">　　    name : &apos;Chen Hao&apos;,</div><div class="line">　　    email : &apos;haoel(@)hotmail.com&apos;,</div><div class="line">　　    website : &apos;http://coolshell.cn&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>于是，我就可以这样访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//以成员的方式</div><div class="line">chenhao.name;</div><div class="line">chenhao.email;</div><div class="line">chenhao.website;</div><div class="line">//以hash map的方式</div><div class="line">chenhao[&quot;name&quot;];</div><div class="line">chenhao[&quot;email&quot;];</div><div class="line">chenhao[&quot;website&quot;];</div></pre></td></tr></table></figure>
+<p>关于函数，我们知道Javascript的函数是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var doSomething = function()&#123;</div><div class="line">   alert(&apos;Hello World.&apos;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>于是，我们可以这么干：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var sayHello = function()&#123;</div><div class="line">   var hello = &quot;Hello, I&apos;m &quot;+ this.name</div><div class="line">                + &quot;， my email is: &quot; + this.email</div><div class="line">                + &quot;， my website is: &quot; + this.website;</div><div class="line">   alert(hello);</div><div class="line">&#125;;</div><div class="line">//直接赋值，这里很像C/C++的函数指针</div><div class="line">chenhao.Hello = sayHello;</div><div class="line">chenhao.Hello();</div></pre></td></tr></table></figure>
+<p>相信这些东西都比较简单，大家都明白了。 可以看到Javascript对象函数是直接声明，直接赋值，直接就用了。runtime的动态语言。<br>还有一种比较规范的写法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//我们可以看到， 其用function来做class。</div><div class="line">var Person = function(name, email, website)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.email = email;</div><div class="line">    this.website = website;</div><div class="line">    this.sayHello = function()&#123;</div><div class="line">        var hello = &quot;Hello, I&apos;m &quot;+ this.name  + &quot;， \n&quot; +</div><div class="line">                    &quot;my email is: &quot; + this.email + &quot;， \n&quot; +</div><div class="line">                    &quot;my website is: &quot; + this.website;</div><div class="line">        alert(hello);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line">var chenhao = new Person(&quot;Chen Hao&quot;, &quot;haoel@hotmail.com&quot;,&quot;http://coolshell.cn&quot;);</div><div class="line">chenhao.sayHello();</div></pre></td></tr></table></figure>
+<p>顺便说一下，要删除对象的属性，很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete chenhao[&apos;email&apos;]</div></pre></td></tr></table></figure>
+<p>上面的这些例子，我们可以看到这样几点：<br>Javascript的数据和成员封装很简单。没有类完全是对象操作。纯动态！<br>Javascript function中的this指针很关键，如果没有的话，那就是局部变量或局部函数。<br>Javascript对象成员函数可以在使用时临时声明，并把一个全局函数直接赋过去就好了。<br>Javascript的成员函数可以在实例上进行修改，也就是说不同实例相同函数名的行为不一定一样。</p>
+<h3 id="属性配置-–-Object-defineProperty"><a href="#属性配置-–-Object-defineProperty" class="headerlink" title="属性配置 – Object.defineProperty"></a>属性配置 – Object.defineProperty</h3><p>先看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//创建对象</div><div class="line">var chenhao = Object.create(null);</div><div class="line">//设置一个属性</div><div class="line">Object.defineProperty( chenhao,</div><div class="line">                &apos;name&apos;, &#123; value:  &apos;Chen Hao&apos;,</div><div class="line">                          writable:     true,</div><div class="line">                          configurable: true,</div><div class="line">                          enumerable:   true &#125;);</div><div class="line">//设置多个属性</div><div class="line">Object.defineProperties( chenhao,</div><div class="line">    &#123;</div><div class="line">        &apos;email&apos;  : &#123; value:  &apos;haoel@hotmail.com&apos;,</div><div class="line">                     writable:     true,</div><div class="line">                     configurable: true,</div><div class="line">                     enumerable:   true &#125;,</div><div class="line">        &apos;website&apos;: &#123; value: &apos;http://coolshell.cn&apos;,</div><div class="line">                     writable:     true,</div><div class="line">                     configurable: true,</div><div class="line">                     enumerable:   true &#125;</div><div class="line">    &#125;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>下面就说说这些属性配置是什么意思。<br>writable：这个属性的值是否可以改。<br>configurable：这个属性的配置是否可以改。<br>enumerable：这个属性是否能在for…in循环中遍历出来或在Object.keys中列举出来。<br>value：属性值。<br>get()/set(_value)：get和set访问器。<br>Get/Set 访问器<br>关于get/set访问器，它的意思就是用get/set来取代value（其不能和value一起使用），示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var  age = 0;</div><div class="line">Object.defineProperty( chenhao,</div><div class="line">            &apos;age&apos;, &#123;</div><div class="line">                      get: function() &#123; return age+1; &#125;,</div><div class="line">                      set: function(value) &#123; age = value; &#125;</div><div class="line">                      enumerable : true,</div><div class="line">                      configurable : true</div><div class="line">                    &#125;</div><div class="line">);</div><div class="line">chenhao.age = 100; //调用set</div><div class="line">alert(chenhao.age); //调用get 输出101（get中+1了）;</div></pre></td></tr></table></figure>
+<p>我们再看一个更为实用的例子——利用已有的属性(age)通过get和set构造新的属性(birth_year)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty( chenhao,</div><div class="line">    &apos;birth_year&apos;,</div><div class="line">    &#123;</div><div class="line">        get: function() &#123;</div><div class="line">            var d = new Date();</div><div class="line">            var y = d.getFullYear();</div><div class="line">            return ( y - this.age );</div><div class="line">        &#125;,</div><div class="line">        set: function(year) &#123;</div><div class="line">            var d = new Date();</div><div class="line">            var y = d.getFullYear();</div><div class="line">            this.age = y - year;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">);</div><div class="line">alert(chenhao.birth_year);</div><div class="line">chenhao.birth_year = 2000;</div><div class="line">alert(chenhao.age);</div></pre></td></tr></table></figure>
+<p>这样做好像有点麻烦，你说，我为什么不写成下面这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var chenhao = &#123;</div><div class="line">    name: &quot;Chen Hao&quot;,</div><div class="line">    email: &quot;haoel@hotmail.com&quot;,</div><div class="line">    website: &quot;http://coolshell.cn&quot;,</div><div class="line">    age: 100,</div><div class="line">    get birth_year() &#123;</div><div class="line">        var d = new Date();</div><div class="line">        var y = d.getFullYear();</div><div class="line">        return ( y - this.age );</div><div class="line">    &#125;,</div><div class="line">    set birth_year(year) &#123;</div><div class="line">        var d = new Date();</div><div class="line">        var y = d.getFullYear();</div><div class="line">        this.age = y - year;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">alert(chenhao.birth_year);</div><div class="line">chenhao.birth_year = 2000;</div><div class="line">alert(chenhao.age);</div></pre></td></tr></table></figure>
+<p>是的，你的确可以这样的，不过通过defineProperty()你可以干这些事：<br>1）设置如 writable，configurable，enumerable 等这类的属性配置。<br>2）动态地为一个对象加属性。比如：一些HTML的DOM对像。</p>
+<h3 id="查看对象属性配置"><a href="#查看对象属性配置" class="headerlink" title="查看对象属性配置"></a>查看对象属性配置</h3><p>如果查看并管理对象的这些配置，下面有个程序可以输出对象的属性和配置等东西：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//列出对象的属性.</div><div class="line">function listProperties(obj)</div><div class="line">&#123;</div><div class="line">    var newLine = &quot;&lt;br /&gt;&quot;;</div><div class="line">    var names = Object.getOwnPropertyNames(obj);</div><div class="line">    for (var i = 0; i &lt; names.length; i++) &#123;</div><div class="line">        var prop = names[i];</div><div class="line">        document.write(prop + newLine);</div><div class="line">        // 列出对象的属性配置（descriptor）动用getOwnPropertyDescriptor函数。</div><div class="line">        var descriptor = Object.getOwnPropertyDescriptor(obj, prop);</div><div class="line">        for (var attr in descriptor) &#123;</div><div class="line">            document.write(&quot;...&quot; + attr + &apos;: &apos; + descriptor[attr]);</div><div class="line">            document.write(newLine);</div><div class="line">        &#125;</div><div class="line">        document.write(newLine);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">listProperties(chenhao);</div></pre></td></tr></table></figure>
+<h3 id="call-apply-bind-和-this"><a href="#call-apply-bind-和-this" class="headerlink" title="call, apply, bind 和 this"></a>call, apply, bind 和 this</h3><p>关于Javascript的this指针，和C++/Java很类似。 我们来看个示例：（这个示例很简单了，我就不多说了）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function print(text)&#123;</div><div class="line">    document.write(this.value + &apos; - &apos; + text+ &apos;&lt;br&gt;&apos;);</div><div class="line">&#125;</div><div class="line">var a = &#123;value: 10, print : print&#125;;</div><div class="line">var b = &#123;value: 20, print : print&#125;;</div><div class="line">print(&apos;hello&apos;);// this =&gt; global, output &quot;undefined - hello&quot;</div><div class="line">a.print(&apos;a&apos;);// this =&gt; a, output &quot;10 - a&quot;</div><div class="line">b.print(&apos;b&apos;); // this =&gt; b, output &quot;20 - b&quot;</div><div class="line">a[&apos;print&apos;](&apos;a&apos;); // this =&gt; a, output &quot;10 - a&quot;</div></pre></td></tr></table></figure>
+<p>我们再来看看call 和 apply，这两个函数的差别就是参数的样子不一样，另一个就是性能不一样，apply的性能要差很多。（关于性能，可到 JSPerf 上去跑跑看看）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print.call(a, &apos;a&apos;); // this =&gt; a, output &quot;10 - a&quot;</div><div class="line">print.call(b, &apos;b&apos;); // this =&gt; b, output &quot;20 - b&quot;</div><div class="line">print.apply(a, [&apos;a&apos;]); // this =&gt; a, output &quot;10 - a&quot;</div><div class="line">print.apply(b, [&apos;b&apos;]); // this =&gt; b, output &quot;20 - b&quot;</div></pre></td></tr></table></figure>
+<p>但是在bind后，this指针，可能会有不一样，但是因为Javascript是动态的。如下面的示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var p = print.bind(a);</div><div class="line">p(&apos;a&apos;);             // this =&gt; a, output &quot;10 - a&quot;</div><div class="line">p.call(b, &apos;b&apos;);     // this =&gt; a, output &quot;10 - b&quot;</div><div class="line">p.apply(b, [&apos;b&apos;]);  // this =&gt; a, output &quot;10 - b&quot;</div></pre></td></tr></table></figure>
+<h3 id="继承-和-重载"><a href="#继承-和-重载" class="headerlink" title="继承 和 重载"></a>继承 和 重载</h3><p>通过上面的那些示例，我们可以通过Object.create()来实际继承，请看下面的代码，Student继承于Object。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var Person = Object.create(null);</div><div class="line">Object.defineProperties</div><div class="line">(</div><div class="line">    Person,</div><div class="line">    &#123;</div><div class="line">        &apos;name&apos;  : &#123;  value: &apos;Chen Hao&apos;&#125;,</div><div class="line">        &apos;email&apos;  : &#123; value : &apos;haoel@hotmail.com&apos;&#125;,</div><div class="line">        &apos;website&apos;: &#123; value: &apos;http://coolshell.cn&apos;&#125;</div><div class="line">    &#125;</div><div class="line">);</div><div class="line">Person.sayHello = function () &#123;</div><div class="line">    var hello = &quot;&lt;p&gt;Hello, I am &quot;+ this.name  + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my email is: &quot; + this.email + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my website is: &quot; + this.website;</div><div class="line">    document.write(hello + &quot;&lt;br&gt;&quot;);</div><div class="line">&#125;</div><div class="line">var Student = Object.create(Person);</div><div class="line">Student.no = &quot;1234567&quot;; //学号</div><div class="line">Student.dept = &quot;Computer Science&quot;; //系</div><div class="line">//使用Person的属性</div><div class="line">document.write(Student.name + &apos; &apos; + Student.email + &apos; &apos; + Student.website +&apos;&lt;br&gt;&apos;);</div><div class="line">//使用Person的方法</div><div class="line">Student.sayHello();</div><div class="line">//重载SayHello方法</div><div class="line">Student.sayHello = function (person) &#123;</div><div class="line">    var hello = &quot;&lt;p&gt;Hello, I am &quot;+ this.name  + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my email is: &quot; + this.email + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my website is: &quot; + this.website + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my student no is: &quot; + this. no + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my departent is: &quot; + this. dept;</div><div class="line">    document.write(hello + &apos;&lt;br&gt;&apos;);</div><div class="line">&#125;</div><div class="line">//再次调用</div><div class="line">Student.sayHello();</div><div class="line">//查看Student的属性（只有 no 、 dept 和 重载了的sayHello）</div><div class="line">document.write(&apos;&lt;p&gt;&apos; + Object.keys(Student) + &apos;&lt;br&gt;&apos;);</div></pre></td></tr></table></figure>
+<p>通用上面这个示例，我们可以看到，Person里的属性并没有被真正复制到了Student中来，但是我们可以去存取。这是因为Javascript用委托实现了这一机制。其实，这就是Prototype，Person是Student的Prototype。<br>当我们的代码需要一个属性的时候，Javascript的引擎会先看当前的这个对象中是否有这个属性，如果没有的话，就会查找他的Prototype对象是否有这个属性，一直继续下去，直到找到或是直到没有Prototype对象。<br>为了证明这个事，我们可以使用Object.getPrototypeOf()来检验一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Student.name = &apos;aaa&apos;;</div><div class="line">//输出 aaa</div><div class="line">document.write(&apos;&lt;p&gt;&apos; + Student.name + &apos;&lt;/p&gt;&apos;);</div><div class="line">//输出 Chen Hao</div><div class="line">document.write(&apos;&lt;p&gt;&apos; +Object.getPrototypeOf(Student).name + &apos;&lt;/p&gt;&apos;);</div></pre></td></tr></table></figure>
+<p>于是，你还可以在子对象的函数里调用父对象的函数，就好像C++里的 Base::func() 一样。于是，我们重载hello的方法就可以使用父类的代码了，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//新版的重载SayHello方法</div><div class="line">Student.sayHello = function (person) &#123;</div><div class="line">    Object.getPrototypeOf(this).sayHello.call(this);</div><div class="line">    var hello = &quot;my student no is: &quot; + this. no + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my departent is: &quot; + this. dept;</div><div class="line">    document.write(hello + &apos;&lt;br&gt;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个很强大吧。</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>上面的那个东西还不能满足我们的要求，我们可能希望这些对象能真正的组合起来。为什么要组合？因为我们都知道是这是OO设计的最重要的东西。不过，这对于Javascript来并没有支持得特别好，不好我们依然可以搞定个事。<br>首先，我们需要定义一个Composition的函数：（target是作用于是对象，source是源对象），下面这个代码还是很简单的，就是把source里的属性一个一个拿出来然后定义到target中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Composition(target, source)</div><div class="line">&#123;</div><div class="line">    var desc  = Object.getOwnPropertyDescriptor;</div><div class="line">    var prop  = Object.getOwnPropertyNames;</div><div class="line">    var def_prop = Object.defineProperty;</div><div class="line">    prop(source).forEach(</div><div class="line">        function(key) &#123;</div><div class="line">            def_prop(target, key， desc(source, key))</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">    return target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有了这个函数以后，我们就可以这来玩了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//艺术家</div><div class="line">var Artist = Object.create(null);</div><div class="line">Artist.sing = function() &#123;</div><div class="line">    return this.name + &apos; starts singing...&apos;;</div><div class="line">&#125;</div><div class="line">Artist.paint = function() &#123;</div><div class="line">    return this.name + &apos; starts painting...&apos;;</div><div class="line">&#125;</div><div class="line">//运动员</div><div class="line">var Sporter = Object.create(null);</div><div class="line">Sporter.run = function() &#123;</div><div class="line">    return this.name + &apos; starts running...&apos;;</div><div class="line">&#125;</div><div class="line">Sporter.swim = function() &#123;</div><div class="line">    return this.name + &apos; starts swimming...&apos;;</div><div class="line">&#125;</div><div class="line">Composition(Person, Artist);</div><div class="line">document.write(Person.sing() + &apos;&lt;br&gt;&apos;);</div><div class="line">document.write(Person.paint() + &apos;&lt;br&gt;&apos;);</div><div class="line">Composition(Person, Sporter);</div><div class="line">document.write(Person.run() + &apos;&lt;br&gt;&apos;);</div><div class="line">document.write(Person.swim() + &apos;&lt;br&gt;&apos;);</div><div class="line">//看看 Person中有什么？（输出：sayHello,sing,paint,swim,run）</div><div class="line">document.write(&apos;&lt;p&gt;&apos; + Object.keys(Person) + &apos;&lt;br&gt;&apos;);</div></pre></td></tr></table></figure>
+<h3 id="Prototype-和-继承"><a href="#Prototype-和-继承" class="headerlink" title="Prototype 和 继承"></a>Prototype 和 继承</h3><p>我们先来说说Prototype。我们先看下面的例程，这个例程不需要解释吧，很像C语言里的函数指针，在C语言里这样的东西见得多了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var plus = function(x，y)&#123;</div><div class="line">    document.write( x + &apos; + &apos; + y + &apos; = &apos; + (x+y) + &apos;&lt;br&gt;&apos;);</div><div class="line">    return x + y;</div><div class="line">&#125;;</div><div class="line">var minus = function(x，y)&#123;</div><div class="line">    document.write(x + &apos; - &apos; + y + &apos; = &apos; + (x-y) + &apos;&lt;br&gt;&apos;);</div><div class="line">    return x - y;</div><div class="line">&#125;;</div><div class="line">var operations = &#123;</div><div class="line">    &apos;+&apos;: plus,</div><div class="line">    &apos;-&apos;: minus</div><div class="line">&#125;;</div><div class="line">var calculate = function(x， y， operation)&#123;</div><div class="line">    return operations[operation](x， y);</div><div class="line">&#125;;</div><div class="line">calculate(12, 4, &apos;+&apos;);</div><div class="line">calculate(24, 3, &apos;-&apos;);</div></pre></td></tr></table></figure>
+<p>那么，我们能不能把这些东西封装起来呢，我们需要使用prototype。看下面的示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var Cal = function(x， y)&#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">&#125;</div><div class="line">Cal.prototype.operations = &#123;</div><div class="line">    &apos;+&apos;: function(x， y) &#123; return x+y;&#125;,</div><div class="line">    &apos;-&apos;: function(x， y) &#123; return x-y;&#125;</div><div class="line">&#125;;</div><div class="line">Cal.prototype.calculate = function(operation)&#123;</div><div class="line">    return this.operations[operation](this.x， this.y);</div><div class="line">&#125;;</div><div class="line">var c = new Cal(4, 5);</div><div class="line">Cal.calculate(&apos;+&apos;);</div><div class="line">Cal.calculate(&apos;-&apos;);</div></pre></td></tr></table></figure>
+<p>这就是prototype的用法，prototype 是javascript这个语言中最重要的内容。网上有太多的文章介始这个东西了。说白了，prototype就是对一对象进行扩展，其特点在于通过“复制”一个已经存在的实例来返回新的实例，而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的（当然，这里没有真正的复制，实际只是委托）。上面的这个例子中，我们扩展了实例Cal，让其有了一个operations的属性和一个calculate的方法。<br>这样，我们可以通过这一特性来实现继承。还记得我们最最前面的那个Person吧， 下面的示例是创建一个Student来继承Person。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function Person(name, email, website)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.email = email;</div><div class="line">    this.website = website;</div><div class="line">&#125;;</div><div class="line">Person.prototype.sayHello = function()&#123;</div><div class="line">    var hello = &quot;Hello, I am &quot;+ this.name  + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my email is: &quot; + this.email + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my website is: &quot; + this.website;</div><div class="line">    return hello;</div><div class="line">&#125;;</div><div class="line">function Student(name, email, website, no, dept)&#123;</div><div class="line">    var proto = Object.getPrototypeOf;</div><div class="line">    proto(Student.prototype).constructor.call(this, name, email, website);</div><div class="line">    this.no = no;</div><div class="line">    this.dept = dept;</div><div class="line">&#125;</div><div class="line">// 继承prototype</div><div class="line">Student.prototype = Object.create(Person.prototype);</div><div class="line">//重置构造函数</div><div class="line">Student.prototype.constructor = Student;</div><div class="line">//重载sayHello()</div><div class="line">Student.prototype.sayHello = function()&#123;</div><div class="line">    var proto = Object.getPrototypeOf;</div><div class="line">    var hello = proto(Student.prototype).sayHello.call(this) + &apos;&lt;br&gt;&apos;;</div><div class="line">    hello += &quot;my student no is: &quot; + this. no + &quot;， &lt;br&gt;&quot; +</div><div class="line">             &quot;my departent is: &quot; + this. dept;</div><div class="line">    return hello;</div><div class="line">&#125;;</div><div class="line">var me = new Student(</div><div class="line">    &quot;Chen Hao&quot;,</div><div class="line">    &quot;haoel@hotmail.com&quot;,</div><div class="line">    &quot;http://coolshell.cn&quot;,</div><div class="line">    &quot;12345678&quot;,</div><div class="line">    &quot;Computer Science&quot;</div><div class="line">);</div><div class="line">document.write(me.sayHello());</div></pre></td></tr></table></figure>
+<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>上面的这些代码并不一定能在所有的浏览器下都能运行，因为上面这些代码遵循 ECMAScript 5 的规范，关于ECMAScript 5 的浏览器兼容列表，你可以看这里“ES5浏览器兼容表”。<br>本文中的所有代码都在Chrome最新版中测试过了。<br>下面是一些函数，可以用在不兼容ES5的浏览器中：<br>Object.create()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function clone(proto) &#123;</div><div class="line">    function Dummy() &#123; &#125;</div><div class="line">    Dummy.prototype             = proto;</div><div class="line">    Dummy.prototype.constructor = Dummy;</div><div class="line">    return new Dummy(); //等价于Object.create(Person);</div><div class="line">&#125;</div><div class="line">var me = clone(Person);</div></pre></td></tr></table></figure>
+<p>defineProperty()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function defineProperty(target, key， descriptor) &#123;</div><div class="line">    if (descriptor.value)&#123;</div><div class="line">        target[key] = descriptor.value;</div><div class="line">    &#125;else &#123;</div><div class="line">        descriptor.get &amp;&amp; target.__defineGetter__(key， descriptor.get);</div><div class="line">        descriptor.set &amp;&amp; target.__defineSetter__(key， descriptor.set);</div><div class="line">    &#125;</div><div class="line">    return target</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>keys()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function keys(object) &#123; var result, key</div><div class="line">    result = [];</div><div class="line">    for (key in object)&#123;</div><div class="line">        if (object.hasOwnProperty(key))  result.push(key)</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Object.getPrototypeOf() 函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function proto(object) &#123;</div><div class="line">    return !object?                null</div><div class="line">         : &apos;__proto__&apos; in object?  object.__proto__</div><div class="line">         : /* not exposed? */      object.constructor.prototype</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>bind 函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var slice = [].slice</div><div class="line">function bind(fn, bound_this) &#123; var bound_args</div><div class="line">    bound_args = slice.call(arguments, 2)</div><div class="line">    return function() &#123; var args</div><div class="line">        args = bound_args.concat(slice.call(arguments))</div><div class="line">        return fn.apply(bound_this, args) &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        这里写留言或版权声明：<a href="/template/20151122/js-object-oriented/" target="_blank" rel="external">http://yoursite.com/template/20151122/js-object-oriented/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/logo.jpg" alt="Shoestrong">
+            Shoestrong
+        </a>
+    </footer>
+</blockquote>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/template/20151223/jquery-bits/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">jquery 小片段</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/template/20151102/jquery-nature/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jquery留着以后用</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="js-object-oriented" data-title="Javascript 面向对象编程" data-url="http://yoursite.com/template/20151122/js-object-oriented/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'shoestrong', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "Javascript 面向对象编程",
+pic: "/img/logo.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/template/20151122/js-object-oriented/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true"></script>
+
+
+
+
+
+</body>
+</html>

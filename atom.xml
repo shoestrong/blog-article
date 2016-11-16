@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-15T15:55:58.050Z</updated>
+  <updated>2016-11-16T06:27:30.136Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,92 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>node.js建立个简单的web服务器</title>
-    <link href="http://yoursite.com//template/20161115/node-webserver/"/>
-    <id>http://yoursite.com//template/20161115/node-webserver/</id>
-    <published>2016-11-15T02:09:52.000Z</published>
-    <updated>2016-11-15T15:55:58.050Z</updated>
-    
-    <content type="html"><![CDATA[<p>接触nodejs还不算太多，欠缺的知识方面很多。</p>
-<p>就来试着搭建一下，废话少说直接上代码：</p>
-<p>cmd:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ./myServer  &lt;自己的文件目录&gt;</div><div class="line"></div><div class="line">node server.js  &lt;直接node下运行server.js&gt;</div></pre></td></tr></table></figure>
-<p>server.js:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这是一个简单的Node HTTP服务器,能处理当前目录的文件</span></div><div class="line"><span class="comment">// 并能实现两种特殊的URL用于测试</span></div><div class="line"><span class="comment">// 用HTTP://localhost:4000或http://127.0.0.1:4000连接这个服务器</span></div><div class="line"></div><div class="line"><span class="comment">// 首先加载所有需要用到的模块</span></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);        <span class="comment">// Http服务器API</span></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);            <span class="comment">// 用于处理本地文件</span></div><div class="line"><span class="keyword">var</span> server = <span class="keyword">new</span> http.Server();    <span class="comment">// 创建新的HTTP服务器</span></div><div class="line">server.listen(<span class="number">4000</span>);            <span class="comment">// 监听端口4000</span></div><div class="line"></div><div class="line"><span class="comment">// 使用on方法注册时间处理</span></div><div class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123; <span class="comment">// 当有request请求的时候触发处理函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Request'</span>);</div><div class="line">    <span class="comment">// 解析请求的URL</span></div><div class="line">    <span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>).parse(request.url);</div><div class="line">    <span class="comment">// 特殊URL会让服务器在发送响应前先等待</span></div><div class="line">    <span class="keyword">switch</span>(url.pathname) &#123;    </div><div class="line">    <span class="keyword">case</span> <span class="string">''</span>||<span class="string">'/'</span> : <span class="comment">// 模拟欢迎页,nodejs是高效流处理的方案,也可以通过配置文件来配置</span></div><div class="line">        fs.readFile(<span class="string">'./index.html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(err) &#123;</div><div class="line">                response.writeHead(<span class="number">404</span>, &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset="UTF-8"'</span> &#125;);</div><div class="line">                response.write(err.message);</div><div class="line">                response.end();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                response.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span> : <span class="string">'text/html; charset=UTF-8'</span> &#125;);</div><div class="line">                response.write(content);</div><div class="line">                response.end();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/test/delay'</span>:<span class="comment">// 此处用于模拟缓慢的网络连接</span></div><div class="line">        <span class="comment">// 使用查询字符串来获取延迟时长,或者2000毫秒</span></div><div class="line">        <span class="keyword">var</span> delay = <span class="built_in">parseInt</span>(url.query) || <span class="number">2000</span>;</div><div class="line">        <span class="comment">// 设置响应状态和头</span></div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>:<span class="string">'text/plain; charset=UTF-8'</span>&#125;);</div><div class="line">        <span class="comment">// 立即开始编写响应主体</span></div><div class="line">        response.write(<span class="string">'Sleeping for'</span> + delay + <span class="string">' milliseconds...'</span>);</div><div class="line">        <span class="comment">// 在之后调用的另一个函数中完成响应</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            response.write(<span class="string">'done.'</span>);</div><div class="line">            response.end();</div><div class="line">        &#125;, delay);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/test/mirror'</span>:<span class="comment">// 如果请求是test/mirror,则原文返回它</span></div><div class="line">        <span class="comment">// 响应状态和头</span></div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>:<span class="string">'text/plain; charset=UTF-8'</span>&#125;);</div><div class="line">        <span class="comment">// 用请求的内容开始编写响应主体</span></div><div class="line">        response.write(request.mothod + <span class="string">' '</span> + request.url + <span class="string">' HTTP/'</span> + request.httpVersion + <span class="string">'\r\n'</span>);</div><div class="line">        <span class="comment">// 所有的请求头</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> h <span class="keyword">in</span> request.headers) &#123;</div><div class="line">            response.write(h + <span class="string">':'</span> + request.headers[h] + <span class="string">'\r\n'</span>);</div><div class="line">        &#125;</div><div class="line">        response.write(<span class="string">'\r\n'</span>);<span class="comment">// 使用额外的空白行来结束头</span></div><div class="line">        <span class="comment">// 在这些事件处理程序函数中完成响应</span></div><div class="line">        <span class="comment">// 当请求主体的数据块完成时,把其写入响应中</span></div><div class="line">        request.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123; response.write(chunk); &#125;);</div><div class="line">        <span class="comment">// 当请求结束时,响应也完成</span></div><div class="line">        request.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123; response.end(); &#125;);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/json'</span> : <span class="comment">// 模拟JSON数据返回</span></div><div class="line">        <span class="comment">// 响应状态和头</span></div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>:<span class="string">'application/json; charset=UTF-8'</span>&#125;);</div><div class="line">        response.write(<span class="built_in">JSON</span>.stringify(&#123;<span class="attr">test</span>:<span class="string">'success'</span>&#125;));</div><div class="line">        response.end();</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:<span class="comment">// 处理来自本地目录的文件</span></div><div class="line">        <span class="keyword">var</span> filename = url.pathname.substring(<span class="number">1</span>);    <span class="comment">// 去掉前导'/'</span></div><div class="line">        <span class="keyword">var</span> type = getType(filename.substring(filename.lastIndexOf(<span class="string">'.'</span>)+<span class="number">1</span>));</div><div class="line">        <span class="comment">// 异步读取文件,并将内容作为单独的数据模块传给回调函数</span></div><div class="line">        <span class="comment">// 对于确实很大的文件,使用流API fs.createReadStream()更好</span></div><div class="line">        fs.readFile(filename, <span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(err) &#123;</div><div class="line">                response.writeHead(<span class="number">404</span>, &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset="UTF-8"'</span> &#125;);</div><div class="line">                response.write(err.message);</div><div class="line">                response.end();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                response.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span> : type &#125;);</div><div class="line">                response.write(content);</div><div class="line">                response.end();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125; </div><div class="line">&#125;);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getType</span>(<span class="params">endTag</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> type=<span class="literal">null</span>;</div><div class="line">    <span class="keyword">switch</span>(endTag)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'html'</span> :</div><div class="line">    <span class="keyword">case</span> <span class="string">'htm'</span> :</div><div class="line">        type = <span class="string">'text/html; charset=UTF-8'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'js'</span> : </div><div class="line">        type = <span class="string">'application/javascript; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'css'</span> :</div><div class="line">        type = <span class="string">'text/css; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'txt'</span> :</div><div class="line">        type = <span class="string">'text/plain; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'manifest'</span> :</div><div class="line">        type = <span class="string">'text/cache-manifest; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span> :</div><div class="line">        type = <span class="string">'application/octet-stream'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> type;</div><div class="line">&#125;</div><div class="line"><span class="comment">//向控制台输出服务启动的信息 </span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'[WebServer][Start] running at http://localhost:4000'</span>);</div></pre></td></tr></table></figure>
-<p>在localhost:4000预览就OK了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;接触nodejs还不算太多，欠缺的知识方面很多。&lt;/p&gt;
-&lt;p&gt;就来试着搭建一下，废话少说直接上代码：&lt;/p&gt;
-&lt;p&gt;cmd:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;di
-    
-    </summary>
-    
-    
-      <category term="node" scheme="http://yoursite.com/tags/node/"/>
-    
-      <category term="server" scheme="http://yoursite.com/tags/server/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搞定git分支</title>
-    <link href="http://yoursite.com//template/20161110/git-master/"/>
-    <id>http://yoursite.com//template/20161110/git-master/</id>
-    <published>2016-11-10T02:09:52.000Z</published>
-    <updated>2016-11-15T04:03:36.484Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li><p>查看远程分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ git branch -a </div><div class="line">* br-2.1.2.2  </div><div class="line">master  </div><div class="line">remotes/origin/HEAD -&gt; origin/master  </div><div class="line">remotes/origin/br-2.1.2.1  </div><div class="line">remotes/origin/br-2.1.2.2  </div><div class="line">remotes/origin/br-2.1.3  </div><div class="line">remotes/origin/master</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看本地分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git branch -a  </div><div class="line">* br-2.1.2.2  </div><div class="line">master</div></pre></td></tr></table></figure>
-</li>
-<li><p>创建分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch test </div><div class="line">$ git branch  </div><div class="line">* br-2.1.2.2  </div><div class="line">master  </div><div class="line">test</div></pre></td></tr></table></figure>
-<p>把分支推到远程分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin test</div></pre></td></tr></table></figure>
-</li>
-<li><p>切换分支到test</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ git branch  </div><div class="line">* br-2.1.2.2  </div><div class="line">master  </div><div class="line">test  </div><div class="line"></div><div class="line">$ git checkout test  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/service/cmd/GetCustomerTarCmd.java  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/util/ServerUtil.java  </div><div class="line">Switched to branch &apos;test&apos;  </div><div class="line"></div><div class="line">$ git branch  </div><div class="line">br-2.1.2.2  </div><div class="line">master  </div><div class="line">* test</div></pre></td></tr></table></figure>
-<p>M 表示cong 原来分支（上一次修改没有提交br-2.1.2.2）带过来的修改</p>
-</li>
-<li><p>删除本地分支 git branch -d xxxxx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ git checkout br-2.1.2.2  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/service/cmd/GetCustomerTarCmd.java  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/util/ServerUtil.java  </div><div class="line">Switched to branch &apos;br-2.1.2.2&apos;  </div><div class="line"></div><div class="line">$ git br  </div><div class="line">* br-2.1.2.2  </div><div class="line"> master  </div><div class="line"> test  </div><div class="line"></div><div class="line">$ git br -d test  </div><div class="line">Deleted branch test (was 17d28d9).  </div><div class="line"></div><div class="line">$ git br  </div><div class="line">* br-2.1.2.2  </div><div class="line"> master</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看本地和远程分支 -a。前面带*号的代表你当前工作目录所处的分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">remotes/origin/HEAD -&gt; origin/master #啥意思呢？</div></pre></td></tr></table></figure>
-<p>”在clone完成之后，Git 会自动为你将此远程仓库命名为origin（origin只相当于一个别名，运行git remote –v或者查看.git\/config可以看到origin的含义），并下载其中所有的数据，建立一个指向它的master 分支的指针，我们用(远程仓库名)\/(分支名) 这样的形式表示远程分支，所以origin\/master指向的是一个remote branch（从那个branch我们clone数据到本地）“<br>这个是执行 git remote -v 的结果，看出来origin其实就是远程的git地址的一个别名。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote  -v  </div><div class="line">origin  git@xxxx/Shoestrong.git (fetch)  </div><div class="line">origin  git@xxxx/Shoestrong.git (push)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git branch -a  </div><div class="line">br-2.1.2.2  </div><div class="line">master  </div><div class="line">* test  </div><div class="line">remotes/origin/HEAD -&gt; origin/master  </div><div class="line">remotes/origin/br-2.1.2.1  </div><div class="line">remotes/origin/br-2.1.2.2  </div><div class="line">remotes/origin/br-2.1.3  </div><div class="line">remotes/origin/master</div></pre></td></tr></table></figure>
-</li>
-<li><p>删除远程版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :br-1.0.0</div></pre></td></tr></table></figure>
-</li>
-<li><p>删除远程分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch -r -d origin/branch-name  </div><div class="line">git push origin :branch-name</div></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;查看远程分支&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-  </entry>
   
   <entry>
     <title>sublime 编辑器配置和构建检查</title>
@@ -248,6 +162,92 @@
   </entry>
   
   <entry>
+    <title>搞定git分支</title>
+    <link href="http://yoursite.com//template/20160510/git-master/"/>
+    <id>http://yoursite.com//template/20160510/git-master/</id>
+    <published>2016-05-09T16:00:00.000Z</published>
+    <updated>2016-11-16T07:17:44.928Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li><p>查看远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ git branch -a </div><div class="line">* br-2.1.2.2  </div><div class="line">master  </div><div class="line">remotes/origin/HEAD -&gt; origin/master  </div><div class="line">remotes/origin/br-2.1.2.1  </div><div class="line">remotes/origin/br-2.1.2.2  </div><div class="line">remotes/origin/br-2.1.3  </div><div class="line">remotes/origin/master</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看本地分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git branch -a  </div><div class="line">* br-2.1.2.2  </div><div class="line">master</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch test </div><div class="line">$ git branch  </div><div class="line">* br-2.1.2.2  </div><div class="line">master  </div><div class="line">test</div></pre></td></tr></table></figure>
+<p>把分支推到远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin test</div></pre></td></tr></table></figure>
+</li>
+<li><p>切换分支到test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ git branch  </div><div class="line">* br-2.1.2.2  </div><div class="line">master  </div><div class="line">test  </div><div class="line"></div><div class="line">$ git checkout test  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/service/cmd/GetCustomerTarCmd.java  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/util/ServerUtil.java  </div><div class="line">Switched to branch &apos;test&apos;  </div><div class="line"></div><div class="line">$ git branch  </div><div class="line">br-2.1.2.2  </div><div class="line">master  </div><div class="line">* test</div></pre></td></tr></table></figure>
+<p>M 表示cong 原来分支（上一次修改没有提交br-2.1.2.2）带过来的修改</p>
+</li>
+<li><p>删除本地分支 git branch -d xxxxx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ git checkout br-2.1.2.2  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/service/cmd/GetCustomerTarCmd.java  </div><div class="line">M Shoestrong-server/src/main/java/com/taobao/Shoestrong/server/util/ServerUtil.java  </div><div class="line">Switched to branch &apos;br-2.1.2.2&apos;  </div><div class="line"></div><div class="line">$ git br  </div><div class="line">* br-2.1.2.2  </div><div class="line"> master  </div><div class="line"> test  </div><div class="line"></div><div class="line">$ git br -d test  </div><div class="line">Deleted branch test (was 17d28d9).  </div><div class="line"></div><div class="line">$ git br  </div><div class="line">* br-2.1.2.2  </div><div class="line"> master</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看本地和远程分支 -a。前面带*号的代表你当前工作目录所处的分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">remotes/origin/HEAD -&gt; origin/master #啥意思呢？</div></pre></td></tr></table></figure>
+<p>”在clone完成之后，Git 会自动为你将此远程仓库命名为origin（origin只相当于一个别名，运行git remote –v或者查看.git\/config可以看到origin的含义），并下载其中所有的数据，建立一个指向它的master 分支的指针，我们用(远程仓库名)\/(分支名) 这样的形式表示远程分支，所以origin\/master指向的是一个remote branch（从那个branch我们clone数据到本地）“<br>这个是执行 git remote -v 的结果，看出来origin其实就是远程的git地址的一个别名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote  -v  </div><div class="line">origin  git@xxxx/Shoestrong.git (fetch)  </div><div class="line">origin  git@xxxx/Shoestrong.git (push)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git branch -a  </div><div class="line">br-2.1.2.2  </div><div class="line">master  </div><div class="line">* test  </div><div class="line">remotes/origin/HEAD -&gt; origin/master  </div><div class="line">remotes/origin/br-2.1.2.1  </div><div class="line">remotes/origin/br-2.1.2.2  </div><div class="line">remotes/origin/br-2.1.3  </div><div class="line">remotes/origin/master</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除远程版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :br-1.0.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除远程分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch -r -d origin/branch-name  </div><div class="line">git push origin :branch-name</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;查看远程分支&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node.js建立个简单的web服务器</title>
+    <link href="http://yoursite.com//template/20160415/node-webserver/"/>
+    <id>http://yoursite.com//template/20160415/node-webserver/</id>
+    <published>2016-04-14T16:00:00.000Z</published>
+    <updated>2016-11-16T07:17:46.397Z</updated>
+    
+    <content type="html"><![CDATA[<p>接触nodejs还不算太多，欠缺的知识方面很多。</p>
+<p>就来试着搭建一下，废话少说直接上代码：</p>
+<p>cmd:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ./myServer  &lt;自己的文件目录&gt;</div><div class="line"></div><div class="line">node server.js  &lt;直接node下运行server.js&gt;</div></pre></td></tr></table></figure>
+<p>server.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这是一个简单的Node HTTP服务器,能处理当前目录的文件</span></div><div class="line"><span class="comment">// 并能实现两种特殊的URL用于测试</span></div><div class="line"><span class="comment">// 用HTTP://localhost:4000或http://127.0.0.1:4000连接这个服务器</span></div><div class="line"></div><div class="line"><span class="comment">// 首先加载所有需要用到的模块</span></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);        <span class="comment">// Http服务器API</span></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);            <span class="comment">// 用于处理本地文件</span></div><div class="line"><span class="keyword">var</span> server = <span class="keyword">new</span> http.Server();    <span class="comment">// 创建新的HTTP服务器</span></div><div class="line">server.listen(<span class="number">4000</span>);            <span class="comment">// 监听端口4000</span></div><div class="line"></div><div class="line"><span class="comment">// 使用on方法注册时间处理</span></div><div class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123; <span class="comment">// 当有request请求的时候触发处理函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Request'</span>);</div><div class="line">    <span class="comment">// 解析请求的URL</span></div><div class="line">    <span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>).parse(request.url);</div><div class="line">    <span class="comment">// 特殊URL会让服务器在发送响应前先等待</span></div><div class="line">    <span class="keyword">switch</span>(url.pathname) &#123;    </div><div class="line">    <span class="keyword">case</span> <span class="string">''</span>||<span class="string">'/'</span> : <span class="comment">// 模拟欢迎页,nodejs是高效流处理的方案,也可以通过配置文件来配置</span></div><div class="line">        fs.readFile(<span class="string">'./index.html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(err) &#123;</div><div class="line">                response.writeHead(<span class="number">404</span>, &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset="UTF-8"'</span> &#125;);</div><div class="line">                response.write(err.message);</div><div class="line">                response.end();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                response.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span> : <span class="string">'text/html; charset=UTF-8'</span> &#125;);</div><div class="line">                response.write(content);</div><div class="line">                response.end();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/test/delay'</span>:<span class="comment">// 此处用于模拟缓慢的网络连接</span></div><div class="line">        <span class="comment">// 使用查询字符串来获取延迟时长,或者2000毫秒</span></div><div class="line">        <span class="keyword">var</span> delay = <span class="built_in">parseInt</span>(url.query) || <span class="number">2000</span>;</div><div class="line">        <span class="comment">// 设置响应状态和头</span></div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>:<span class="string">'text/plain; charset=UTF-8'</span>&#125;);</div><div class="line">        <span class="comment">// 立即开始编写响应主体</span></div><div class="line">        response.write(<span class="string">'Sleeping for'</span> + delay + <span class="string">' milliseconds...'</span>);</div><div class="line">        <span class="comment">// 在之后调用的另一个函数中完成响应</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            response.write(<span class="string">'done.'</span>);</div><div class="line">            response.end();</div><div class="line">        &#125;, delay);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/test/mirror'</span>:<span class="comment">// 如果请求是test/mirror,则原文返回它</span></div><div class="line">        <span class="comment">// 响应状态和头</span></div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>:<span class="string">'text/plain; charset=UTF-8'</span>&#125;);</div><div class="line">        <span class="comment">// 用请求的内容开始编写响应主体</span></div><div class="line">        response.write(request.mothod + <span class="string">' '</span> + request.url + <span class="string">' HTTP/'</span> + request.httpVersion + <span class="string">'\r\n'</span>);</div><div class="line">        <span class="comment">// 所有的请求头</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> h <span class="keyword">in</span> request.headers) &#123;</div><div class="line">            response.write(h + <span class="string">':'</span> + request.headers[h] + <span class="string">'\r\n'</span>);</div><div class="line">        &#125;</div><div class="line">        response.write(<span class="string">'\r\n'</span>);<span class="comment">// 使用额外的空白行来结束头</span></div><div class="line">        <span class="comment">// 在这些事件处理程序函数中完成响应</span></div><div class="line">        <span class="comment">// 当请求主体的数据块完成时,把其写入响应中</span></div><div class="line">        request.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123; response.write(chunk); &#125;);</div><div class="line">        <span class="comment">// 当请求结束时,响应也完成</span></div><div class="line">        request.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123; response.end(); &#125;);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/json'</span> : <span class="comment">// 模拟JSON数据返回</span></div><div class="line">        <span class="comment">// 响应状态和头</span></div><div class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>:<span class="string">'application/json; charset=UTF-8'</span>&#125;);</div><div class="line">        response.write(<span class="built_in">JSON</span>.stringify(&#123;<span class="attr">test</span>:<span class="string">'success'</span>&#125;));</div><div class="line">        response.end();</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:<span class="comment">// 处理来自本地目录的文件</span></div><div class="line">        <span class="keyword">var</span> filename = url.pathname.substring(<span class="number">1</span>);    <span class="comment">// 去掉前导'/'</span></div><div class="line">        <span class="keyword">var</span> type = getType(filename.substring(filename.lastIndexOf(<span class="string">'.'</span>)+<span class="number">1</span>));</div><div class="line">        <span class="comment">// 异步读取文件,并将内容作为单独的数据模块传给回调函数</span></div><div class="line">        <span class="comment">// 对于确实很大的文件,使用流API fs.createReadStream()更好</span></div><div class="line">        fs.readFile(filename, <span class="function"><span class="keyword">function</span>(<span class="params">err, content</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(err) &#123;</div><div class="line">                response.writeHead(<span class="number">404</span>, &#123; <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset="UTF-8"'</span> &#125;);</div><div class="line">                response.write(err.message);</div><div class="line">                response.end();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                response.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span> : type &#125;);</div><div class="line">                response.write(content);</div><div class="line">                response.end();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125; </div><div class="line">&#125;);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getType</span>(<span class="params">endTag</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> type=<span class="literal">null</span>;</div><div class="line">    <span class="keyword">switch</span>(endTag)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'html'</span> :</div><div class="line">    <span class="keyword">case</span> <span class="string">'htm'</span> :</div><div class="line">        type = <span class="string">'text/html; charset=UTF-8'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'js'</span> : </div><div class="line">        type = <span class="string">'application/javascript; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'css'</span> :</div><div class="line">        type = <span class="string">'text/css; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'txt'</span> :</div><div class="line">        type = <span class="string">'text/plain; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'manifest'</span> :</div><div class="line">        type = <span class="string">'text/cache-manifest; charset="UTF-8"'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span> :</div><div class="line">        type = <span class="string">'application/octet-stream'</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> type;</div><div class="line">&#125;</div><div class="line"><span class="comment">//向控制台输出服务启动的信息 </span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'[WebServer][Start] running at http://localhost:4000'</span>);</div></pre></td></tr></table></figure>
+<p>在localhost:4000预览就OK了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接触nodejs还不算太多，欠缺的知识方面很多。&lt;/p&gt;
+&lt;p&gt;就来试着搭建一下，废话少说直接上代码：&lt;/p&gt;
+&lt;p&gt;cmd:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;di
+    
+    </summary>
+    
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="server" scheme="http://yoursite.com/tags/server/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jQuery.extend扩展</title>
     <link href="http://yoursite.com//template/20160402/jquery-extend/"/>
     <id>http://yoursite.com//template/20160402/jquery-extend/</id>
@@ -312,6 +312,162 @@
   </entry>
   
   <entry>
+    <title>检测IE浏览器版本</title>
+    <link href="http://yoursite.com//template/20160128/IE-solve/"/>
+    <id>http://yoursite.com//template/20160128/IE-solve/</id>
+    <published>2016-01-27T16:00:00.000Z</published>
+    <updated>2016-11-16T07:34:42.373Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般来说，我们是建议使用条件注释来替换浏览器检测的方法。本文所讲的技术仅仅在条件注释无法实现，或者需要检测一个bug。</p>
+<p>IE条件注释：</p>
+<blockquote>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+</html></blockquote>
+<p>IE10及其以下的浏览器可以通过检测存在非标准的 document.all 对象来区分。</p>
+<p>除了上面的特性外，每个IE浏览器还有各自的支持对象</p>
+<table>
+<thead>
+<tr>
+<th>IE版本</th>
+<th style="text-align:center">支持的标准对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10+</td>
+<td style="text-align:center">window.atob</td>
+</tr>
+<tr>
+<td>9+</td>
+<td style="text-align:center">document.addEventListener</td>
+</tr>
+<tr>
+<td>8+</td>
+<td style="text-align:center">document.querySelector</td>
+</tr>
+<tr>
+<td>7+</td>
+<td style="text-align:center">window.XMLHttpRequest</td>
+</tr>
+<tr>
+<td>6+</td>
+<td style="text-align:center">document.compatMode</td>
+</tr>
+</tbody>
+</table>
+<p>通过上面列出的这些不同IE浏览器版本的检测特性，我们可以组合得到某个特定的IE版本</p>
+<p>例如下面的这些组合</p>
+<table>
+<thead>
+<tr>
+<th>IE版本</th>
+<th style="text-align:center">支持的状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10及以下</td>
+<td style="text-align:center">document.all</td>
+</tr>
+<tr>
+<td>9及以下</td>
+<td style="text-align:center">document.all &amp;&amp; !window.atob</td>
+</tr>
+<tr>
+<td>8及以下</td>
+<td style="text-align:center">document.all &amp;&amp; !document.addEventListener</td>
+</tr>
+<tr>
+<td>7及以下</td>
+<td style="text-align:center">document.all &amp;&amp; !document.querySelector</td>
+</tr>
+<tr>
+<td>6及以下</td>
+<td style="text-align:center">document.all &amp;&amp; !window.XMLHttpRequest</td>
+</tr>
+<tr>
+<td>5.x</td>
+<td style="text-align:center">document.all &amp;&amp; !document.compatMode</td>
+</tr>
+</tbody>
+</table>
+<p>例子</p>
+<p>下面的条件代码只会在IE7及一下浏览器中运行</p>
+<blockquote>
+<p>if (document.all &amp;&amp; !document.querySelector) {<br>alert(‘IE7 or lower’);<br>}</p>
+</blockquote>
+<p>下面这一个只会运行在IE8中，并且不支持IE7或者IE9：</p>
+<blockquote>
+<p>if (document.all &amp;&amp; document.querySelector &amp;&amp; !document.addEventListener) {<br>alert(‘IE8’);<br>}</p>
+</blockquote>
+<p>下面的条件代码当浏览器为IE11+ 或者非IE时为真</p>
+<blockquote>
+<p>if (!document.all) {<br>alert(‘IE11+ or not IE’);<br>}</p>
+</blockquote>
+<p>其他方法检测IE版本</p>
+<p>由于IE11并不再支持条件注释了</p>
+<p>检测不同的IE版本对应不同的javascript引擎</p>
+<p>|IE版本             | - | 10 | 9 | 8   | 7   | 6   |<br>|JavaScript引擎版本 | - | 10 | 9 | 5.8 | 5.7 | 5.6 |</p>
+<p>条件注释<br>例如下面的代码结合条件注释和JS代码：</p>
+<p>html代码：</p>
+<blockquote>
+<p><script><br>var ie = false;<br></script><br><!--[if lte IE 7]><script>
+ie = 7;
+</script><![endif]--></p>
+</blockquote>
+<p>在JavaScript文件中：</p>
+<blockquote>
+<p>if (7 === ie) {<br>alert(‘IE7 or lower’);<br>}</p>
+</blockquote>
+<p>或者是：</p>
+<blockquote>
+<p>var test = document.createElement(‘div’);<br>test.innerHTML = ‘<!--[if lte IE 7]>1<![endif]-->‘;</p>
+<p>if (‘1’ === test.innerHTML) {<br>alert(‘IE7 or lower’);<br>}</p>
+</blockquote>
+<p>相比较使用全局方法，这种方法可能就不优雅并且速度也不是很快。</p>
+<p>IE版本代码总结：</p>
+<p>IE11或者非IE</p>
+<blockquote>
+<p>if (!document.all) {<br>alert(‘IE11+ or not IE’);<br>}</p>
+</blockquote>
+<p>IE10</p>
+<blockquote>
+<p>if (document.all &amp;&amp; document.addEventListener &amp;&amp; window.atob) {<br>alert(‘IE10’);<br>}</p>
+</blockquote>
+<p>IE9</p>
+<blockquote>
+<p>if (document.all &amp;&amp; document.addEventListener &amp;&amp; !window.atob) {<br>alert(‘IE9’);<br>}<br>IE8上面已经给出</p>
+<p>if (document.all &amp;&amp; document.querySelector &amp;&amp; !document.addEventListener) {<br>alert(‘IE8’);<br>}</p>
+</blockquote>
+<p>IE7</p>
+<blockquote>
+<p>if (document.all &amp;&amp; window.XMLHttpRequest &amp;&amp; !document.querySelector) {<br>alert(‘IE7’);<br>}</p>
+</blockquote>
+<p>IE6</p>
+<blockquote>
+<p>if (document.all &amp;&amp; document.compatMode &amp;&amp; !window.XMLHttpRequest) {<br>alert(‘IE6’);<br>}</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般来说，我们是建议使用条件注释来替换浏览器检测的方法。本文所讲的技术仅仅在条件注释无法实现，或者需要检测一个bug。&lt;/p&gt;
+&lt;p&gt;IE条件注释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;!--[if lt IE 7 ]&gt; &lt;html class=&quot;ie6&quot;&gt; &lt;![endi
+    
+    </summary>
+    
+    
+      <category term="IE" scheme="http://yoursite.com/tags/IE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>jquery 小片段</title>
     <link href="http://yoursite.com//template/20151223/jquery-bits/"/>
     <id>http://yoursite.com//template/20151223/jquery-bits/</id>
@@ -338,6 +494,84 @@
     
     
       <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript 面向对象编程</title>
+    <link href="http://yoursite.com//template/20151122/js-object-oriented/"/>
+    <id>http://yoursite.com//template/20151122/js-object-oriented/</id>
+    <published>2015-11-21T16:00:00.000Z</published>
+    <updated>2016-11-16T07:50:16.421Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们知道Javascript中的变量定义基本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var name = &apos;Chen Hao&apos;;</div><div class="line">var email = &apos;haoel(@)hotmail.com&apos;;</div><div class="line">var website = &apos;http://coolshell.cn&apos;;</div><div class="line">　　如果要用对象来写的话，就是下面这个样子：</div><div class="line">var chenhao = &#123;</div><div class="line">　　    name : &apos;Chen Hao&apos;,</div><div class="line">　　    email : &apos;haoel(@)hotmail.com&apos;,</div><div class="line">　　    website : &apos;http://coolshell.cn&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>于是，我就可以这样访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//以成员的方式</div><div class="line">chenhao.name;</div><div class="line">chenhao.email;</div><div class="line">chenhao.website;</div><div class="line">//以hash map的方式</div><div class="line">chenhao[&quot;name&quot;];</div><div class="line">chenhao[&quot;email&quot;];</div><div class="line">chenhao[&quot;website&quot;];</div></pre></td></tr></table></figure>
+<p>关于函数，我们知道Javascript的函数是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var doSomething = function()&#123;</div><div class="line">   alert(&apos;Hello World.&apos;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>于是，我们可以这么干：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var sayHello = function()&#123;</div><div class="line">   var hello = &quot;Hello, I&apos;m &quot;+ this.name</div><div class="line">                + &quot;， my email is: &quot; + this.email</div><div class="line">                + &quot;， my website is: &quot; + this.website;</div><div class="line">   alert(hello);</div><div class="line">&#125;;</div><div class="line">//直接赋值，这里很像C/C++的函数指针</div><div class="line">chenhao.Hello = sayHello;</div><div class="line">chenhao.Hello();</div></pre></td></tr></table></figure>
+<p>相信这些东西都比较简单，大家都明白了。 可以看到Javascript对象函数是直接声明，直接赋值，直接就用了。runtime的动态语言。<br>还有一种比较规范的写法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//我们可以看到， 其用function来做class。</div><div class="line">var Person = function(name, email, website)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.email = email;</div><div class="line">    this.website = website;</div><div class="line">    this.sayHello = function()&#123;</div><div class="line">        var hello = &quot;Hello, I&apos;m &quot;+ this.name  + &quot;， \n&quot; +</div><div class="line">                    &quot;my email is: &quot; + this.email + &quot;， \n&quot; +</div><div class="line">                    &quot;my website is: &quot; + this.website;</div><div class="line">        alert(hello);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line">var chenhao = new Person(&quot;Chen Hao&quot;, &quot;haoel@hotmail.com&quot;,&quot;http://coolshell.cn&quot;);</div><div class="line">chenhao.sayHello();</div></pre></td></tr></table></figure>
+<p>顺便说一下，要删除对象的属性，很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete chenhao[&apos;email&apos;]</div></pre></td></tr></table></figure>
+<p>上面的这些例子，我们可以看到这样几点：<br>Javascript的数据和成员封装很简单。没有类完全是对象操作。纯动态！<br>Javascript function中的this指针很关键，如果没有的话，那就是局部变量或局部函数。<br>Javascript对象成员函数可以在使用时临时声明，并把一个全局函数直接赋过去就好了。<br>Javascript的成员函数可以在实例上进行修改，也就是说不同实例相同函数名的行为不一定一样。</p>
+<h3 id="属性配置-–-Object-defineProperty"><a href="#属性配置-–-Object-defineProperty" class="headerlink" title="属性配置 – Object.defineProperty"></a>属性配置 – Object.defineProperty</h3><p>先看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//创建对象</div><div class="line">var chenhao = Object.create(null);</div><div class="line">//设置一个属性</div><div class="line">Object.defineProperty( chenhao,</div><div class="line">                &apos;name&apos;, &#123; value:  &apos;Chen Hao&apos;,</div><div class="line">                          writable:     true,</div><div class="line">                          configurable: true,</div><div class="line">                          enumerable:   true &#125;);</div><div class="line">//设置多个属性</div><div class="line">Object.defineProperties( chenhao,</div><div class="line">    &#123;</div><div class="line">        &apos;email&apos;  : &#123; value:  &apos;haoel@hotmail.com&apos;,</div><div class="line">                     writable:     true,</div><div class="line">                     configurable: true,</div><div class="line">                     enumerable:   true &#125;,</div><div class="line">        &apos;website&apos;: &#123; value: &apos;http://coolshell.cn&apos;,</div><div class="line">                     writable:     true,</div><div class="line">                     configurable: true,</div><div class="line">                     enumerable:   true &#125;</div><div class="line">    &#125;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>下面就说说这些属性配置是什么意思。<br>writable：这个属性的值是否可以改。<br>configurable：这个属性的配置是否可以改。<br>enumerable：这个属性是否能在for…in循环中遍历出来或在Object.keys中列举出来。<br>value：属性值。<br>get()/set(_value)：get和set访问器。<br>Get/Set 访问器<br>关于get/set访问器，它的意思就是用get/set来取代value（其不能和value一起使用），示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var  age = 0;</div><div class="line">Object.defineProperty( chenhao,</div><div class="line">            &apos;age&apos;, &#123;</div><div class="line">                      get: function() &#123; return age+1; &#125;,</div><div class="line">                      set: function(value) &#123; age = value; &#125;</div><div class="line">                      enumerable : true,</div><div class="line">                      configurable : true</div><div class="line">                    &#125;</div><div class="line">);</div><div class="line">chenhao.age = 100; //调用set</div><div class="line">alert(chenhao.age); //调用get 输出101（get中+1了）;</div></pre></td></tr></table></figure>
+<p>我们再看一个更为实用的例子——利用已有的属性(age)通过get和set构造新的属性(birth_year)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty( chenhao,</div><div class="line">    &apos;birth_year&apos;,</div><div class="line">    &#123;</div><div class="line">        get: function() &#123;</div><div class="line">            var d = new Date();</div><div class="line">            var y = d.getFullYear();</div><div class="line">            return ( y - this.age );</div><div class="line">        &#125;,</div><div class="line">        set: function(year) &#123;</div><div class="line">            var d = new Date();</div><div class="line">            var y = d.getFullYear();</div><div class="line">            this.age = y - year;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">);</div><div class="line">alert(chenhao.birth_year);</div><div class="line">chenhao.birth_year = 2000;</div><div class="line">alert(chenhao.age);</div></pre></td></tr></table></figure>
+<p>这样做好像有点麻烦，你说，我为什么不写成下面这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var chenhao = &#123;</div><div class="line">    name: &quot;Chen Hao&quot;,</div><div class="line">    email: &quot;haoel@hotmail.com&quot;,</div><div class="line">    website: &quot;http://coolshell.cn&quot;,</div><div class="line">    age: 100,</div><div class="line">    get birth_year() &#123;</div><div class="line">        var d = new Date();</div><div class="line">        var y = d.getFullYear();</div><div class="line">        return ( y - this.age );</div><div class="line">    &#125;,</div><div class="line">    set birth_year(year) &#123;</div><div class="line">        var d = new Date();</div><div class="line">        var y = d.getFullYear();</div><div class="line">        this.age = y - year;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">alert(chenhao.birth_year);</div><div class="line">chenhao.birth_year = 2000;</div><div class="line">alert(chenhao.age);</div></pre></td></tr></table></figure>
+<p>是的，你的确可以这样的，不过通过defineProperty()你可以干这些事：<br>1）设置如 writable，configurable，enumerable 等这类的属性配置。<br>2）动态地为一个对象加属性。比如：一些HTML的DOM对像。</p>
+<h3 id="查看对象属性配置"><a href="#查看对象属性配置" class="headerlink" title="查看对象属性配置"></a>查看对象属性配置</h3><p>如果查看并管理对象的这些配置，下面有个程序可以输出对象的属性和配置等东西：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//列出对象的属性.</div><div class="line">function listProperties(obj)</div><div class="line">&#123;</div><div class="line">    var newLine = &quot;&lt;br /&gt;&quot;;</div><div class="line">    var names = Object.getOwnPropertyNames(obj);</div><div class="line">    for (var i = 0; i &lt; names.length; i++) &#123;</div><div class="line">        var prop = names[i];</div><div class="line">        document.write(prop + newLine);</div><div class="line">        // 列出对象的属性配置（descriptor）动用getOwnPropertyDescriptor函数。</div><div class="line">        var descriptor = Object.getOwnPropertyDescriptor(obj, prop);</div><div class="line">        for (var attr in descriptor) &#123;</div><div class="line">            document.write(&quot;...&quot; + attr + &apos;: &apos; + descriptor[attr]);</div><div class="line">            document.write(newLine);</div><div class="line">        &#125;</div><div class="line">        document.write(newLine);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">listProperties(chenhao);</div></pre></td></tr></table></figure>
+<h3 id="call-apply-bind-和-this"><a href="#call-apply-bind-和-this" class="headerlink" title="call, apply, bind 和 this"></a>call, apply, bind 和 this</h3><p>关于Javascript的this指针，和C++/Java很类似。 我们来看个示例：（这个示例很简单了，我就不多说了）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function print(text)&#123;</div><div class="line">    document.write(this.value + &apos; - &apos; + text+ &apos;&lt;br&gt;&apos;);</div><div class="line">&#125;</div><div class="line">var a = &#123;value: 10, print : print&#125;;</div><div class="line">var b = &#123;value: 20, print : print&#125;;</div><div class="line">print(&apos;hello&apos;);// this =&gt; global, output &quot;undefined - hello&quot;</div><div class="line">a.print(&apos;a&apos;);// this =&gt; a, output &quot;10 - a&quot;</div><div class="line">b.print(&apos;b&apos;); // this =&gt; b, output &quot;20 - b&quot;</div><div class="line">a[&apos;print&apos;](&apos;a&apos;); // this =&gt; a, output &quot;10 - a&quot;</div></pre></td></tr></table></figure>
+<p>我们再来看看call 和 apply，这两个函数的差别就是参数的样子不一样，另一个就是性能不一样，apply的性能要差很多。（关于性能，可到 JSPerf 上去跑跑看看）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">print.call(a, &apos;a&apos;); // this =&gt; a, output &quot;10 - a&quot;</div><div class="line">print.call(b, &apos;b&apos;); // this =&gt; b, output &quot;20 - b&quot;</div><div class="line">print.apply(a, [&apos;a&apos;]); // this =&gt; a, output &quot;10 - a&quot;</div><div class="line">print.apply(b, [&apos;b&apos;]); // this =&gt; b, output &quot;20 - b&quot;</div></pre></td></tr></table></figure>
+<p>但是在bind后，this指针，可能会有不一样，但是因为Javascript是动态的。如下面的示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var p = print.bind(a);</div><div class="line">p(&apos;a&apos;);             // this =&gt; a, output &quot;10 - a&quot;</div><div class="line">p.call(b, &apos;b&apos;);     // this =&gt; a, output &quot;10 - b&quot;</div><div class="line">p.apply(b, [&apos;b&apos;]);  // this =&gt; a, output &quot;10 - b&quot;</div></pre></td></tr></table></figure>
+<h3 id="继承-和-重载"><a href="#继承-和-重载" class="headerlink" title="继承 和 重载"></a>继承 和 重载</h3><p>通过上面的那些示例，我们可以通过Object.create()来实际继承，请看下面的代码，Student继承于Object。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var Person = Object.create(null);</div><div class="line">Object.defineProperties</div><div class="line">(</div><div class="line">    Person,</div><div class="line">    &#123;</div><div class="line">        &apos;name&apos;  : &#123;  value: &apos;Chen Hao&apos;&#125;,</div><div class="line">        &apos;email&apos;  : &#123; value : &apos;haoel@hotmail.com&apos;&#125;,</div><div class="line">        &apos;website&apos;: &#123; value: &apos;http://coolshell.cn&apos;&#125;</div><div class="line">    &#125;</div><div class="line">);</div><div class="line">Person.sayHello = function () &#123;</div><div class="line">    var hello = &quot;&lt;p&gt;Hello, I am &quot;+ this.name  + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my email is: &quot; + this.email + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my website is: &quot; + this.website;</div><div class="line">    document.write(hello + &quot;&lt;br&gt;&quot;);</div><div class="line">&#125;</div><div class="line">var Student = Object.create(Person);</div><div class="line">Student.no = &quot;1234567&quot;; //学号</div><div class="line">Student.dept = &quot;Computer Science&quot;; //系</div><div class="line">//使用Person的属性</div><div class="line">document.write(Student.name + &apos; &apos; + Student.email + &apos; &apos; + Student.website +&apos;&lt;br&gt;&apos;);</div><div class="line">//使用Person的方法</div><div class="line">Student.sayHello();</div><div class="line">//重载SayHello方法</div><div class="line">Student.sayHello = function (person) &#123;</div><div class="line">    var hello = &quot;&lt;p&gt;Hello, I am &quot;+ this.name  + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my email is: &quot; + this.email + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my website is: &quot; + this.website + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my student no is: &quot; + this. no + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my departent is: &quot; + this. dept;</div><div class="line">    document.write(hello + &apos;&lt;br&gt;&apos;);</div><div class="line">&#125;</div><div class="line">//再次调用</div><div class="line">Student.sayHello();</div><div class="line">//查看Student的属性（只有 no 、 dept 和 重载了的sayHello）</div><div class="line">document.write(&apos;&lt;p&gt;&apos; + Object.keys(Student) + &apos;&lt;br&gt;&apos;);</div></pre></td></tr></table></figure>
+<p>通用上面这个示例，我们可以看到，Person里的属性并没有被真正复制到了Student中来，但是我们可以去存取。这是因为Javascript用委托实现了这一机制。其实，这就是Prototype，Person是Student的Prototype。<br>当我们的代码需要一个属性的时候，Javascript的引擎会先看当前的这个对象中是否有这个属性，如果没有的话，就会查找他的Prototype对象是否有这个属性，一直继续下去，直到找到或是直到没有Prototype对象。<br>为了证明这个事，我们可以使用Object.getPrototypeOf()来检验一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Student.name = &apos;aaa&apos;;</div><div class="line">//输出 aaa</div><div class="line">document.write(&apos;&lt;p&gt;&apos; + Student.name + &apos;&lt;/p&gt;&apos;);</div><div class="line">//输出 Chen Hao</div><div class="line">document.write(&apos;&lt;p&gt;&apos; +Object.getPrototypeOf(Student).name + &apos;&lt;/p&gt;&apos;);</div></pre></td></tr></table></figure>
+<p>于是，你还可以在子对象的函数里调用父对象的函数，就好像C++里的 Base::func() 一样。于是，我们重载hello的方法就可以使用父类的代码了，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//新版的重载SayHello方法</div><div class="line">Student.sayHello = function (person) &#123;</div><div class="line">    Object.getPrototypeOf(this).sayHello.call(this);</div><div class="line">    var hello = &quot;my student no is: &quot; + this. no + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my departent is: &quot; + this. dept;</div><div class="line">    document.write(hello + &apos;&lt;br&gt;&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个很强大吧。</p>
+<h3 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h3><p>上面的那个东西还不能满足我们的要求，我们可能希望这些对象能真正的组合起来。为什么要组合？因为我们都知道是这是OO设计的最重要的东西。不过，这对于Javascript来并没有支持得特别好，不好我们依然可以搞定个事。<br>首先，我们需要定义一个Composition的函数：（target是作用于是对象，source是源对象），下面这个代码还是很简单的，就是把source里的属性一个一个拿出来然后定义到target中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Composition(target, source)</div><div class="line">&#123;</div><div class="line">    var desc  = Object.getOwnPropertyDescriptor;</div><div class="line">    var prop  = Object.getOwnPropertyNames;</div><div class="line">    var def_prop = Object.defineProperty;</div><div class="line">    prop(source).forEach(</div><div class="line">        function(key) &#123;</div><div class="line">            def_prop(target, key， desc(source, key))</div><div class="line">        &#125;</div><div class="line">    )</div><div class="line">    return target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有了这个函数以后，我们就可以这来玩了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//艺术家</div><div class="line">var Artist = Object.create(null);</div><div class="line">Artist.sing = function() &#123;</div><div class="line">    return this.name + &apos; starts singing...&apos;;</div><div class="line">&#125;</div><div class="line">Artist.paint = function() &#123;</div><div class="line">    return this.name + &apos; starts painting...&apos;;</div><div class="line">&#125;</div><div class="line">//运动员</div><div class="line">var Sporter = Object.create(null);</div><div class="line">Sporter.run = function() &#123;</div><div class="line">    return this.name + &apos; starts running...&apos;;</div><div class="line">&#125;</div><div class="line">Sporter.swim = function() &#123;</div><div class="line">    return this.name + &apos; starts swimming...&apos;;</div><div class="line">&#125;</div><div class="line">Composition(Person, Artist);</div><div class="line">document.write(Person.sing() + &apos;&lt;br&gt;&apos;);</div><div class="line">document.write(Person.paint() + &apos;&lt;br&gt;&apos;);</div><div class="line">Composition(Person, Sporter);</div><div class="line">document.write(Person.run() + &apos;&lt;br&gt;&apos;);</div><div class="line">document.write(Person.swim() + &apos;&lt;br&gt;&apos;);</div><div class="line">//看看 Person中有什么？（输出：sayHello,sing,paint,swim,run）</div><div class="line">document.write(&apos;&lt;p&gt;&apos; + Object.keys(Person) + &apos;&lt;br&gt;&apos;);</div></pre></td></tr></table></figure>
+<h3 id="Prototype-和-继承"><a href="#Prototype-和-继承" class="headerlink" title="Prototype 和 继承"></a>Prototype 和 继承</h3><p>我们先来说说Prototype。我们先看下面的例程，这个例程不需要解释吧，很像C语言里的函数指针，在C语言里这样的东西见得多了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var plus = function(x，y)&#123;</div><div class="line">    document.write( x + &apos; + &apos; + y + &apos; = &apos; + (x+y) + &apos;&lt;br&gt;&apos;);</div><div class="line">    return x + y;</div><div class="line">&#125;;</div><div class="line">var minus = function(x，y)&#123;</div><div class="line">    document.write(x + &apos; - &apos; + y + &apos; = &apos; + (x-y) + &apos;&lt;br&gt;&apos;);</div><div class="line">    return x - y;</div><div class="line">&#125;;</div><div class="line">var operations = &#123;</div><div class="line">    &apos;+&apos;: plus,</div><div class="line">    &apos;-&apos;: minus</div><div class="line">&#125;;</div><div class="line">var calculate = function(x， y， operation)&#123;</div><div class="line">    return operations[operation](x， y);</div><div class="line">&#125;;</div><div class="line">calculate(12, 4, &apos;+&apos;);</div><div class="line">calculate(24, 3, &apos;-&apos;);</div></pre></td></tr></table></figure>
+<p>那么，我们能不能把这些东西封装起来呢，我们需要使用prototype。看下面的示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var Cal = function(x， y)&#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">&#125;</div><div class="line">Cal.prototype.operations = &#123;</div><div class="line">    &apos;+&apos;: function(x， y) &#123; return x+y;&#125;,</div><div class="line">    &apos;-&apos;: function(x， y) &#123; return x-y;&#125;</div><div class="line">&#125;;</div><div class="line">Cal.prototype.calculate = function(operation)&#123;</div><div class="line">    return this.operations[operation](this.x， this.y);</div><div class="line">&#125;;</div><div class="line">var c = new Cal(4, 5);</div><div class="line">Cal.calculate(&apos;+&apos;);</div><div class="line">Cal.calculate(&apos;-&apos;);</div></pre></td></tr></table></figure>
+<p>这就是prototype的用法，prototype 是javascript这个语言中最重要的内容。网上有太多的文章介始这个东西了。说白了，prototype就是对一对象进行扩展，其特点在于通过“复制”一个已经存在的实例来返回新的实例，而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的（当然，这里没有真正的复制，实际只是委托）。上面的这个例子中，我们扩展了实例Cal，让其有了一个operations的属性和一个calculate的方法。<br>这样，我们可以通过这一特性来实现继承。还记得我们最最前面的那个Person吧， 下面的示例是创建一个Student来继承Person。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function Person(name, email, website)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.email = email;</div><div class="line">    this.website = website;</div><div class="line">&#125;;</div><div class="line">Person.prototype.sayHello = function()&#123;</div><div class="line">    var hello = &quot;Hello, I am &quot;+ this.name  + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my email is: &quot; + this.email + &quot;， &lt;br&gt;&quot; +</div><div class="line">                &quot;my website is: &quot; + this.website;</div><div class="line">    return hello;</div><div class="line">&#125;;</div><div class="line">function Student(name, email, website, no, dept)&#123;</div><div class="line">    var proto = Object.getPrototypeOf;</div><div class="line">    proto(Student.prototype).constructor.call(this, name, email, website);</div><div class="line">    this.no = no;</div><div class="line">    this.dept = dept;</div><div class="line">&#125;</div><div class="line">// 继承prototype</div><div class="line">Student.prototype = Object.create(Person.prototype);</div><div class="line">//重置构造函数</div><div class="line">Student.prototype.constructor = Student;</div><div class="line">//重载sayHello()</div><div class="line">Student.prototype.sayHello = function()&#123;</div><div class="line">    var proto = Object.getPrototypeOf;</div><div class="line">    var hello = proto(Student.prototype).sayHello.call(this) + &apos;&lt;br&gt;&apos;;</div><div class="line">    hello += &quot;my student no is: &quot; + this. no + &quot;， &lt;br&gt;&quot; +</div><div class="line">             &quot;my departent is: &quot; + this. dept;</div><div class="line">    return hello;</div><div class="line">&#125;;</div><div class="line">var me = new Student(</div><div class="line">    &quot;Chen Hao&quot;,</div><div class="line">    &quot;haoel@hotmail.com&quot;,</div><div class="line">    &quot;http://coolshell.cn&quot;,</div><div class="line">    &quot;12345678&quot;,</div><div class="line">    &quot;Computer Science&quot;</div><div class="line">);</div><div class="line">document.write(me.sayHello());</div></pre></td></tr></table></figure>
+<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>上面的这些代码并不一定能在所有的浏览器下都能运行，因为上面这些代码遵循 ECMAScript 5 的规范，关于ECMAScript 5 的浏览器兼容列表，你可以看这里“ES5浏览器兼容表”。<br>本文中的所有代码都在Chrome最新版中测试过了。<br>下面是一些函数，可以用在不兼容ES5的浏览器中：<br>Object.create()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function clone(proto) &#123;</div><div class="line">    function Dummy() &#123; &#125;</div><div class="line">    Dummy.prototype             = proto;</div><div class="line">    Dummy.prototype.constructor = Dummy;</div><div class="line">    return new Dummy(); //等价于Object.create(Person);</div><div class="line">&#125;</div><div class="line">var me = clone(Person);</div></pre></td></tr></table></figure>
+<p>defineProperty()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function defineProperty(target, key， descriptor) &#123;</div><div class="line">    if (descriptor.value)&#123;</div><div class="line">        target[key] = descriptor.value;</div><div class="line">    &#125;else &#123;</div><div class="line">        descriptor.get &amp;&amp; target.__defineGetter__(key， descriptor.get);</div><div class="line">        descriptor.set &amp;&amp; target.__defineSetter__(key， descriptor.set);</div><div class="line">    &#125;</div><div class="line">    return target</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>keys()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function keys(object) &#123; var result, key</div><div class="line">    result = [];</div><div class="line">    for (key in object)&#123;</div><div class="line">        if (object.hasOwnProperty(key))  result.push(key)</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Object.getPrototypeOf() 函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function proto(object) &#123;</div><div class="line">    return !object?                null</div><div class="line">         : &apos;__proto__&apos; in object?  object.__proto__</div><div class="line">         : /* not exposed? */      object.constructor.prototype</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>bind 函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var slice = [].slice</div><div class="line">function bind(fn, bound_this) &#123; var bound_args</div><div class="line">    bound_args = slice.call(arguments, 2)</div><div class="line">    return function() &#123; var args</div><div class="line">        args = bound_args.concat(slice.call(arguments))</div><div class="line">        return fn.apply(bound_this, args) &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们知道Javascript中的变量定义基本如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;lin
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
   </entry>
   
