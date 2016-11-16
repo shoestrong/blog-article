@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Shoestrong&#39;s blog</title>
   
-  <link href="/note/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2016-11-15T15:55:58.050Z</updated>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>node.js建立个简单的web服务器</title>
-    <link href="http://yoursite.com/20161115/node.js%E5%BB%BA%E7%AB%8B%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://yoursite.com/20161115/node.js建立个简单的web服务器/</id>
+    <link href="http://yoursite.com//note/20161115node.js%E5%BB%BA%E7%AB%8B%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://yoursite.com//note/20161115node.js建立个简单的web服务器/</id>
     <published>2016-11-15T02:09:52.000Z</published>
     <updated>2016-11-15T15:55:58.050Z</updated>
     
@@ -49,8 +49,8 @@
   
   <entry>
     <title>搞定git分支</title>
-    <link href="http://yoursite.com/20161110/%E6%90%9E%E5%AE%9Agit%E5%88%86%E6%94%AF/"/>
-    <id>http://yoursite.com/20161110/搞定git分支/</id>
+    <link href="http://yoursite.com//note/20161110%E6%90%9E%E5%AE%9Agit%E5%88%86%E6%94%AF/"/>
+    <id>http://yoursite.com//note/20161110搞定git分支/</id>
     <published>2016-11-10T02:09:52.000Z</published>
     <updated>2016-11-15T04:03:36.484Z</updated>
     
@@ -103,8 +103,8 @@
   
   <entry>
     <title>sublime 编辑器配置和构建检查</title>
-    <link href="http://yoursite.com/20160912/sublime%20%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E6%9E%84%E5%BB%BA%E6%A3%80%E6%9F%A5/"/>
-    <id>http://yoursite.com/20160912/sublime 编辑器配置和构建检查/</id>
+    <link href="http://yoursite.com//note/20160912sublime%20%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE%E5%92%8C%E6%9E%84%E5%BB%BA%E6%A3%80%E6%9F%A5/"/>
+    <id>http://yoursite.com//note/20160912sublime 编辑器配置和构建检查/</id>
     <published>2016-09-12T08:50:00.000Z</published>
     <updated>2016-11-15T17:00:02.307Z</updated>
     
