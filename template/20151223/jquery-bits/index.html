@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>创建对象的方法与实践 | Shoestrong&#39;s blog | 小闯的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#396">
+  
+  
+  <meta name="keywords" content="js">
+  <meta name="description" content="检测IE浏览器12345$(document).ready(function() &amp;#123;    if(navigator.userAgent.match(/msie/i)) &amp;#123;        alert(&amp;apos;I am an old fashioned Internet Explorer&amp;apos;);    &amp;#125;&amp;#125;);
+平滑滚动至页面顶部123456$(&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建对象的方法与实践">
+<meta property="og:url" content="http://yoursite.com/template/20151223/jquery-bits/index.html">
+<meta property="og:site_name" content="Shoestrong's blog">
+<meta property="og:description" content="检测IE浏览器12345$(document).ready(function() &amp;#123;    if(navigator.userAgent.match(/msie/i)) &amp;#123;        alert(&amp;apos;I am an old fashioned Internet Explorer&amp;apos;);    &amp;#125;&amp;#125;);
+平滑滚动至页面顶部123456$(&amp;">
+<meta property="og:updated_time" content="2016-11-16T06:37:34.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建对象的方法与实践">
+<meta name="twitter:description" content="检测IE浏览器12345$(document).ready(function() &amp;#123;    if(navigator.userAgent.match(/msie/i)) &amp;#123;        alert(&amp;apos;I am an old fashioned Internet Explorer&amp;apos;);    &amp;#125;&amp;#125;);
+平滑滚动至页面顶部123456$(&amp;">
+  
+    <link rel="alternative" href="/atom.xml" title="Shoestrong&#39;s blog" type="application/atom+xml">
+  
+  <meta name="summary" content="shoestrong,小闯,小闯的博客,shoestrong&#39;s blog,前端,前端开发">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="http://shoestrong.cc" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Shoestrong</h5>
+          <a href="mailto:zqc_2007@yeah.net" title="zqc_2007@yeah.net" class="mail">zqc_2007@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Shoestrong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p>Shoestrong&#39;s blog &copy; 2016</p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">创建对象的方法与实践</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">创建对象的方法与实践</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-12-22T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2015-12-23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检测IE浏览器"><span class="post-toc-number">1.</span> <span class="post-toc-text">检测IE浏览器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#平滑滚动至页面顶部"><span class="post-toc-number">2.</span> <span class="post-toc-text">平滑滚动至页面顶部</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保持始终处于顶部"><span class="post-toc-number">3.</span> <span class="post-toc-text">保持始终处于顶部</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#替换html标签"><span class="post-toc-number">4.</span> <span class="post-toc-text">替换html标签</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检测小屏幕宽度"><span class="post-toc-number">5.</span> <span class="post-toc-text">检测小屏幕宽度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动修复损坏图片"><span class="post-toc-number">6.</span> <span class="post-toc-text">自动修复损坏图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检测复制、-粘贴与剪切操作"><span class="post-toc-number">7.</span> <span class="post-toc-text">检测复制、 粘贴与剪切操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动为外部链接添加target-“blank”-属性"><span class="post-toc-number">8.</span> <span class="post-toc-text">自动为外部链接添加target = “blank” 属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#悬停时淡入-淡出"><span class="post-toc-number">9.</span> <span class="post-toc-text">悬停时淡入 / 淡出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#禁用文本-密码输入中的空格"><span class="post-toc-number">10.</span> <span class="post-toc-text">禁用文本 / 密码输入中的空格</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-jquery-bits" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">创建对象的方法与实践</h1>
+        <div class="post-meta">
+            <time datetime="2015-12-22T16:00:00.000Z" itemprop="datePublished" class="post-time">
+  2015-12-23
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="检测IE浏览器"><a href="#检测IE浏览器" class="headerlink" title="检测IE浏览器"></a>检测IE浏览器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    if(navigator.userAgent.match(/msie/i)) &#123;</div><div class="line">        alert(&apos;I am an old fashioned Internet Explorer&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="平滑滚动至页面顶部"><a href="#平滑滚动至页面顶部" class="headerlink" title="平滑滚动至页面顶部"></a>平滑滚动至页面顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&quot;a[href=&apos;#top&apos;]&quot;).click(function() &#123;</div><div class="line">    $(&quot;html, body&quot;).animate(&#123;</div><div class="line">        scrollTop: 0</div><div class="line">    &#125;, &quot;slow&quot;);</div><div class="line">    return false;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="保持始终处于顶部"><a href="#保持始终处于顶部" class="headerlink" title="保持始终处于顶部"></a>保持始终处于顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$(function() &#123;</div><div class="line">var $win = $(window);</div><div class="line">var $nav = $(&apos;.mytoolbar&apos;);</div><div class="line">var navTop = $(&apos;.mytoolbar&apos;).length &amp;&amp; $(&apos;.mytoolbar&apos;).offset().top;</div><div class="line">var isFixed = 0;</div><div class="line"></div><div class="line">processScroll()</div><div class="line">$win.on(&apos;scroll&apos;, processScroll)</div><div class="line"></div><div class="line">function processScroll() &#123;</div><div class="line">    var i, scrollTop = $win.scrollTop()</div><div class="line">    if(scrollTop &gt;= navTop &amp;&amp; !isFixed) &#123;</div><div class="line">        isFixed = 1</div><div class="line">        $nav.addClass(&apos;subnav-fixed&apos;)</div><div class="line">    &#125; else if(scrollTop &lt;= navTop &amp;&amp; isFixed) &#123;</div><div class="line">        isFixed = 0</div><div class="line">        $nav.removeClass(&apos;subnav-fixed&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="替换html标签"><a href="#替换html标签" class="headerlink" title="替换html标签"></a>替换html标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).replaceWith(function() &#123;</div><div class="line">    return $(&quot;&lt;div /&gt;&quot;).append($(this).contents());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="检测小屏幕宽度"><a href="#检测小屏幕宽度" class="headerlink" title="检测小屏幕宽度"></a>检测小屏幕宽度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var responsive_viewport = $(window).width();</div><div class="line">/* 如果小于 481px */</div><div class="line">if(responsive_viewport &lt; 481) &#123;</div><div class="line">    alert(&apos;屏幕小于481px&apos;);</div><div class="line">&#125; /* 属于小屏 */</div></pre></td></tr></table></figure>
+<h3 id="自动修复损坏图片"><a href="#自动修复损坏图片" class="headerlink" title="自动修复损坏图片"></a>自动修复损坏图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;img&apos;).error(function() &#123;</div><div class="line">    $(this).attr(&apos;src&apos;, &apos;img/broken.png&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="检测复制、-粘贴与剪切操作"><a href="#检测复制、-粘贴与剪切操作" class="headerlink" title="检测复制、 粘贴与剪切操作"></a>检测复制、 粘贴与剪切操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(&quot;#textA&quot;).bind(&apos;copy&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;copy behaviour detected!&apos;)</div><div class="line">&#125;);</div><div class="line">$(&quot;#textA&quot;).bind(&apos;paste&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;paste behaviour detected!&apos;)</div><div class="line">&#125;);</div><div class="line">$(&quot;#textA&quot;).bind(&apos;cut&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;cut behaviour detected!&apos;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="自动为外部链接添加target-“blank”-属性"><a href="#自动为外部链接添加target-“blank”-属性" class="headerlink" title="自动为外部链接添加target = “blank” 属性"></a>自动为外部链接添加target = “blank” 属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var root = location.protocol + &apos;//&apos; + location.host;</div><div class="line">$(&apos;a&apos;).not(&apos;:contains(root)&apos;).click(function() &#123;</div><div class="line">    this.target = &quot;_blank&quot;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="悬停时淡入-淡出"><a href="#悬停时淡入-淡出" class="headerlink" title="悬停时淡入 / 淡出"></a>悬停时淡入 / 淡出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    $(&quot;.thumbs img&quot;).fadeTo(&quot;slow&quot;, 0.6); // This sets the opacity of the thumbs to fade down to 60% when the page loads</div><div class="line">    $(&quot;.thumbs img&quot;).hover(function() &#123;</div><div class="line">        $(this).fadeTo(&quot;slow&quot;, 1.0); // This should set the opacity to 100% on hover</div><div class="line">    &#125;, function() &#123;</div><div class="line">        $(this).fadeTo(&quot;slow&quot;, 0.6); // This should set the opacity back to 60% on mouseout</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="禁用文本-密码输入中的空格"><a href="#禁用文本-密码输入中的空格" class="headerlink" title="禁用文本 / 密码输入中的空格"></a>禁用文本 / 密码输入中的空格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;input.nospace&apos;).keydown(function(e) &#123;</div><div class="line">    if(e.keyCode == 32) &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        这里写留言或版权声明：<a href="/template/20151223/jquery-bits/" target="_blank" rel="external">http://yoursite.com/template/20151223/jquery-bits/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/logo.jpg" alt="Shoestrong">
+            Shoestrong
+        </a>
+    </footer>
+</blockquote>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/template/20160210/create-object/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">创建对象的方法与实践</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="jquery-bits" data-title="创建对象的方法与实践" data-url="http://yoursite.com/template/20151223/jquery-bits/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'shoestrong', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "创建对象的方法与实践",
+pic: "/img/logo.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/template/20151223/jquery-bits/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true"></script>
+
+
+
+
+
+</body>
+</html>

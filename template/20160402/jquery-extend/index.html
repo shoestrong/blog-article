@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>jQuery.extend扩展 | Shoestrong&#39;s blog | 小闯的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#396">
+  
+  
+  <meta name="keywords" content="jQuery">
+  <meta name="description" content="jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展（相当于添加成员方法）
+源码如下：
+12345678910111213141516171819202122232425262728293031323334353637383940">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery.extend扩展">
+<meta property="og:url" content="http://yoursite.com/template/20160402/jquery-extend/index.html">
+<meta property="og:site_name" content="Shoestrong's blog">
+<meta property="og:description" content="jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展（相当于添加成员方法）
+源码如下：
+12345678910111213141516171819202122232425262728293031323334353637383940">
+<meta property="og:updated_time" content="2016-11-16T06:16:09.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery.extend扩展">
+<meta name="twitter:description" content="jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展（相当于添加成员方法）
+源码如下：
+12345678910111213141516171819202122232425262728293031323334353637383940">
+  
+    <link rel="alternative" href="/atom.xml" title="Shoestrong&#39;s blog" type="application/atom+xml">
+  
+  <meta name="summary" content="shoestrong,小闯,小闯的博客,shoestrong&#39;s blog,前端,前端开发">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="http://shoestrong.cc" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Shoestrong</h5>
+          <a href="mailto:zqc_2007@yeah.net" title="zqc_2007@yeah.net" class="mail">zqc_2007@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Shoestrong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p>Shoestrong&#39;s blog &copy; 2016</p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">jQuery.extend扩展</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">jQuery.extend扩展</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-04-01T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2016-04-02
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-jquery-extend" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">jQuery.extend扩展</h1>
+        <div class="post-meta">
+            <time datetime="2016-04-01T16:00:00.000Z" itemprop="datePublished" class="post-time">
+  2016-04-02
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).<br>jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展<br>（相当于添加成员方法）</p>
+<p>源码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;</div><div class="line">    var src, copyIsArray, copy, name, options, clone,</div><div class="line">        target = arguments[0] || &#123;&#125;,    // 常见用法 jQuery.extend( obj1, obj2 )，此时，target为arguments[0]</div><div class="line">        i = 1,</div><div class="line">        length = arguments.length,</div><div class="line">        deep = false;</div><div class="line"></div><div class="line">    // Handle a deep copy situation</div><div class="line">    if ( typeof target === &quot;boolean&quot; ) &#123;    // 如果第一个参数为true，即 jQuery.extend( true, obj1, obj2 ); 的情况</div><div class="line">        deep = target;  // 此时target是true</div><div class="line">        target = arguments[1] || &#123;&#125;;    // target改为 obj1</div><div class="line">        // skip the boolean and the target</div><div class="line">        i = 2;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Handle case when target is a string or something (possible in deep copy)</div><div class="line">    if ( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target) ) &#123;  // 处理奇怪的情况，比如 jQuery.extend( &apos;hello&apos; , &#123;nick: &apos;casper&#125;)~~</div><div class="line">        target = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // extend jQuery itself if only one argument is passed</div><div class="line">    if ( length === i ) &#123;   // 处理这种情况 jQuery.extend(obj)，或 jQuery.fn.extend( obj )</div><div class="line">        target = this;  // jQuery.extend时，this指的是jQuery；jQuery.fn.extend时，this指的是jQuery.fn</div><div class="line">        --i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    for ( ; i &lt; length; i++ ) &#123;</div><div class="line">        // Only deal with non-null/undefined values</div><div class="line">        if ( (options = arguments[ i ]) != null ) &#123; // 比如 jQuery.extend( obj1, obj2, obj3, ojb4 )，options则为 obj2、obj3...</div><div class="line">            // Extend the base object</div><div class="line">            for ( name in options ) &#123;</div><div class="line">                src = target[ name ];</div><div class="line">                copy = options[ name ];</div><div class="line"></div><div class="line">                // Prevent never-ending loop</div><div class="line">                if ( target === copy ) &#123;    // 防止自引用，不赘述</div><div class="line">                    continue;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                // Recurse if we&apos;re merging plain objects or arrays</div><div class="line">                // 如果是深拷贝，且被拷贝的属性值本身是个对象</div><div class="line">                if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) &#123;</div><div class="line">                    if ( copyIsArray ) &#123;    // 被拷贝的属性值是个数组</div><div class="line">                        copyIsArray = false;</div><div class="line">                        clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line"></div><div class="line">                    &#125; else &#123;    被拷贝的属性值是个plainObject，比如&#123; nick: &apos;casper&apos; &#125;</div><div class="line">                        clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    // Never move original objects, clone them</div><div class="line">                    target[ name ] = jQuery.extend( deep, clone, copy );  // 递归~</div><div class="line"></div><div class="line">                // Don&apos;t bring in undefined values</div><div class="line">                &#125; else if ( copy !== undefined ) &#123;  // 浅拷贝，且属性值不为undefined</div><div class="line">                    target[ name ] = copy;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Return the modified object</div><div class="line">    return target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        这里写留言或版权声明：<a href="/template/20160402/jquery-extend/" target="_blank" rel="external">http://yoursite.com/template/20160402/jquery-extend/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/logo.jpg" alt="Shoestrong">
+            Shoestrong
+        </a>
+    </footer>
+</blockquote>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/template/20160722/js-function/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">必备的7个JavaScript函数</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/template/20160210/create-object/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">创建对象的方法与实践</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="jquery-extend" data-title="jQuery.extend扩展" data-url="http://yoursite.com/template/20160402/jquery-extend/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'shoestrong', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "jQuery.extend扩展",
+pic: "/img/logo.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/template/20160402/jquery-extend/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true"></script>
+
+
+
+
+
+</body>
+</html>

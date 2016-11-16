@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>创建对象的方法与实践 | Shoestrong&#39;s blog | 小闯的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#396">
+  
+  
+  <meta name="keywords" content="js">
+  <meta name="description" content="创建自变量创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板、不需要原型——“噌”地一下，一个有方法有数据的对象就出现了。
+123456var o = &amp;#123;  x: 42,  y: 3.14,  f: function() &amp;#123;&amp;#125;,  g: function() &amp;#123;&amp;#125;&amp;#125;;
+缺点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建对象的方法与实践">
+<meta property="og:url" content="http://yoursite.com/template/20160210/create-object/index.html">
+<meta property="og:site_name" content="Shoestrong's blog">
+<meta property="og:description" content="创建自变量创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板、不需要原型——“噌”地一下，一个有方法有数据的对象就出现了。
+123456var o = &amp;#123;  x: 42,  y: 3.14,  f: function() &amp;#123;&amp;#125;,  g: function() &amp;#123;&amp;#125;&amp;#125;;
+缺点">
+<meta property="og:updated_time" content="2016-11-16T06:33:19.045Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建对象的方法与实践">
+<meta name="twitter:description" content="创建自变量创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板、不需要原型——“噌”地一下，一个有方法有数据的对象就出现了。
+123456var o = &amp;#123;  x: 42,  y: 3.14,  f: function() &amp;#123;&amp;#125;,  g: function() &amp;#123;&amp;#125;&amp;#125;;
+缺点">
+  
+    <link rel="alternative" href="/atom.xml" title="Shoestrong&#39;s blog" type="application/atom+xml">
+  
+  <meta name="summary" content="shoestrong,小闯,小闯的博客,shoestrong&#39;s blog,前端,前端开发">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="http://shoestrong.cc" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Shoestrong</h5>
+          <a href="mailto:zqc_2007@yeah.net" title="zqc_2007@yeah.net" class="mail">zqc_2007@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Shoestrong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p>Shoestrong&#39;s blog &copy; 2016</p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">创建对象的方法与实践</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">创建对象的方法与实践</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-02-09T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2016-02-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建自变量"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建自变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工厂函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">工厂函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型链"><span class="post-toc-number">3.</span> <span class="post-toc-text">原型链</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ES5"><span class="post-toc-number">4.</span> <span class="post-toc-text">ES5</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ES6"><span class="post-toc-number">5.</span> <span class="post-toc-text">ES6</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#比较"><span class="post-toc-number">6.</span> <span class="post-toc-text">比较</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#性能"><span class="post-toc-number">7.</span> <span class="post-toc-text">性能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特点"><span class="post-toc-number">8.</span> <span class="post-toc-text">特点</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-create-object" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">创建对象的方法与实践</h1>
+        <div class="post-meta">
+            <time datetime="2016-02-09T16:00:00.000Z" itemprop="datePublished" class="post-time">
+  2016-02-10
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="创建自变量"><a href="#创建自变量" class="headerlink" title="创建自变量"></a>创建自变量</h3><p>创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板、不需要原型——“噌”地一下，一个有方法有数据的对象就出现了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  x: 42,</div><div class="line">  y: 3.14,</div><div class="line">  f: function() &#123;&#125;,</div><div class="line">  g: function() &#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>缺点：如果我们想在其他地方创建一个同类型的对象，就得把这个对象的方法、数据和初始化都复制粘贴过去。我们需要一种能够批量创建同类型对象的方法，而不是只创建一个对象。</p>
+<h3 id="工厂函数"><a href="#工厂函数" class="headerlink" title="工厂函数"></a>工厂函数</h3><p>这种方法来创建一类具有相同结构、接口和实现的对象是最简单的。我们不直接创建一个对象字面量，而是将对象字面量作为函数的返回值，当我们需要多次或多处创建同类型的对象时，只要调用这个函数就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function thing() &#123;</div><div class="line">  return &#123;</div><div class="line">    x: 42,</div><div class="line">    y: 3.14,</div><div class="line">    f: function() &#123;&#125;,</div><div class="line">    g: function() &#123;&#125;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
+<p>缺点：它会导致内存膨胀，因为每一个对象都包含了工厂函数的独立副本。理论上我们希望所有对象共享一个工厂函数副本。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>JavaScript提供了一种内置的在对象之间共享数据的机制，叫做原型链。当我们访问一个对象的属性时，它会委托某些其他对象来完成这一请求。我们可以利用这一点来修改工厂函数，使它创建的每个对象只包含自己特有的数据，而对其他属性的请求则全部委托给原型链上共有的一个对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var thingPrototype = &#123;</div><div class="line">  f: function() &#123;&#125;,</div><div class="line">  g: function() &#123;&#125;</div><div class="line">&#125;;</div><div class="line">function thing() &#123;</div><div class="line">  var o = Object.create(thingPrototype);</div><div class="line">  o.x = 42;</div><div class="line">  o.y = 3.14;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
+<p>事实上，JavaScript本身就有内置的机制来支持这种通用模式。我们不需要自己创建这个共有的对象（即原型对象），JavaScript会自动为每个函数创建一个原型对象，我们可以把共享数据直接放在这个对象里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">thing.prototype.f = function() &#123;&#125;;</div><div class="line">thing.prototype.g = function() &#123;&#125;;</div><div class="line">function thing() &#123;</div><div class="line">  var o = Object.create(thing.prototype);</div><div class="line">  o.x = 42;</div><div class="line">  o.y = 3.14;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
+<p>缺点：会导致重复。上述thing函数的第一行和最后一行在每一个“委托原型的工厂函数”中都会重复一次，几乎没有区别。</p>
+<h3 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h3><p>我们可以把那些重复的代码抽出来，放进一个自定义函数里。这个函数会创建一个对象，并与其他某个任意函数（参数函数）的原型建立委托(继承)关系，然后我们把新创建的对象作为参数，调用这个函数（参数函数），最后返回这个新的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function create(fn) &#123;</div><div class="line">  var o = Object.create(fn.prototype);</div><div class="line">  fn.call(o);</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">Thing.prototype.f = function() &#123;&#125;;</div><div class="line">Thing.prototype.g = function() &#123;&#125;;</div><div class="line">function Thing() &#123;</div><div class="line">  this.x = 42;</div><div class="line">  this.y = 3.14;</div><div class="line">&#125;</div><div class="line">var o = create(Thing);</div></pre></td></tr></table></figure>
+<p>事实上，JavaScript对这种方法也有内置的支持机制。我们定义的这个create函数实际上就是new关键字的一个基本实现，因此我们可以顺手把create换成new。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Thing.prototype.f = function() &#123;&#125;;</div><div class="line">Thing.prototype.g = function() &#123;&#125;;</div><div class="line">function Thing() &#123;</div><div class="line">  this.x = 42;</div><div class="line">  this.y = 3.14;</div><div class="line">&#125;</div><div class="line">var o = new Thing();</div></pre></td></tr></table></figure>
+<p>我们现在抵达的这一站通常被称为ES5类。它通过函数来创建对象，把需要共享的数据委托给原型对象，并使用new关键字来处理重复的逻辑。<br>缺点：冗长又难看，而且在实现继承的时候会更冗长更难看。</p>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><p>JavaScript最新的相关改进是ES6 类，用新语法来实现上述功能要简洁得多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Thing &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    this.x = 42;</div><div class="line">    this.y = 3.14;</div><div class="line">  &#125;</div><div class="line">  f() &#123;&#125;</div><div class="line">  g() &#123;&#125;</div><div class="line">&#125;</div><div class="line">var o = new Thing();</div></pre></td></tr></table></figure>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>多年以来，JavaScript开发者们与原型链的关系总是若即若离，纠缠不清。而今天我们最有可能遇到的两种创建对象的方式，一种是强烈依赖原型链的class语法，另一种则是完全不依赖原型链的工厂函数语法。这两种方式在性能上和特点上是不一样的——尽管差别不太大。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>今天的JavaScript引擎已经经过了大幅度的优化，以至于很难通过JavaScript代码来推断怎样会比较快。关键在于测量方法。然而测量方法有时也会失灵。通常每六周就会有更新的JavaScript引擎发布，而在这之前采取的测量方法，和基于这种测量方法做出的决策都有可能失去意义。因此，我的经验法则是选择最官方、最广泛使用的语法，因为大多数时候它经历的实践检验最多，因而性能是最高的。目前来说class语法最符合这一点，在我写这篇文章时，class语法大约比返回字面量的工厂函数快3倍。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>随着ES6的发布，类与工厂函数之间曾经存在的几点差异消失了。现在，工厂函数和类都能够强制实现真正的私有数据——工厂函数通过闭包实现，类通过WeakMap实现。两者都能实现多重继承——工厂函数可以将其他属性混入自己的对象，类也可以将其他属性混入自己的原型，或者通过类工厂，通过代理也能实现。工厂函数和类也都可以在需要的时候返回任意对象，语法也都很简单。<br>结论<br>综合考虑，我更倾向于class语法。它标准、简单、干净、快速，还提供了所有曾经只有函数工厂才具备的特点。</p>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        这里写留言或版权声明：<a href="/template/20160210/create-object/" target="_blank" rel="external">http://yoursite.com/template/20160210/create-object/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/logo.jpg" alt="Shoestrong">
+            Shoestrong
+        </a>
+    </footer>
+</blockquote>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/template/20160402/jquery-extend/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">jQuery.extend扩展</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/template/20151223/jquery-bits/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">创建对象的方法与实践</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="create-object" data-title="创建对象的方法与实践" data-url="http://yoursite.com/template/20160210/create-object/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'shoestrong', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "创建对象的方法与实践",
+pic: "/img/logo.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/template/20160210/create-object/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true"></script>
+
+
+
+
+
+</body>
+</html>

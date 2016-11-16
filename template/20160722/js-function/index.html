@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>必备的7个JavaScript函数 | Shoestrong&#39;s blog | 小闯的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#396">
+  
+  
+  <meta name="keywords" content="js">
+  <meta name="description" content="防止高频调用的debounce函数debounce 函数对于那些执行事件驱动的任务来说是必不可少的提高性能的函数。如果你在使用scroll, resize, key*等事件触发执行任务时不使用降频函数，也行你就犯了重大的错误。下面这个降频函数 debounce 能让你的代码变的高效：
+12345678910111213141516171819function debounce(func, wait">
+<meta property="og:type" content="article">
+<meta property="og:title" content="必备的7个JavaScript函数">
+<meta property="og:url" content="http://yoursite.com/template/20160722/js-function/index.html">
+<meta property="og:site_name" content="Shoestrong's blog">
+<meta property="og:description" content="防止高频调用的debounce函数debounce 函数对于那些执行事件驱动的任务来说是必不可少的提高性能的函数。如果你在使用scroll, resize, key*等事件触发执行任务时不使用降频函数，也行你就犯了重大的错误。下面这个降频函数 debounce 能让你的代码变的高效：
+12345678910111213141516171819function debounce(func, wait">
+<meta property="og:updated_time" content="2016-11-16T06:27:21.394Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="必备的7个JavaScript函数">
+<meta name="twitter:description" content="防止高频调用的debounce函数debounce 函数对于那些执行事件驱动的任务来说是必不可少的提高性能的函数。如果你在使用scroll, resize, key*等事件触发执行任务时不使用降频函数，也行你就犯了重大的错误。下面这个降频函数 debounce 能让你的代码变的高效：
+12345678910111213141516171819function debounce(func, wait">
+  
+    <link rel="alternative" href="/atom.xml" title="Shoestrong&#39;s blog" type="application/atom+xml">
+  
+  <meta name="summary" content="shoestrong,小闯,小闯的博客,shoestrong&#39;s blog,前端,前端开发">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="http://shoestrong.cc" class="avatar waves-effect waves-circle waves-light"><img src="/img/logo.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Shoestrong</h5>
+          <a href="mailto:zqc_2007@yeah.net" title="zqc_2007@yeah.net" class="mail">zqc_2007@yeah.net</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Shoestrong" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p>Shoestrong&#39;s blog &copy; 2016</p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">必备的7个JavaScript函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">必备的7个JavaScript函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-21T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2016-07-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#防止高频调用的debounce函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">防止高频调用的debounce函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设定时间-频率循环检测函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">设定时间/频率循环检测函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#禁止重复调用、只允许执行一次的once-函数"><span class="post-toc-number">3.</span> <span class="post-toc-text">禁止重复调用、只允许执行一次的once 函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取一个链接的绝对地址-getAbsoluteUrl"><span class="post-toc-number">4.</span> <span class="post-toc-text">获取一个链接的绝对地址 getAbsoluteUrl</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断一个JavaScript函数是否是系统原生函数-isNative"><span class="post-toc-number">5.</span> <span class="post-toc-text">判断一个JavaScript函数是否是系统原生函数 isNative</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用JavaScript创建新的CSS规则-insertRule"><span class="post-toc-number">6.</span> <span class="post-toc-text">用JavaScript创建新的CSS规则 insertRule</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断网页元素是否具有某种属性和样式-matchesSelector"><span class="post-toc-number">7.</span> <span class="post-toc-text">判断网页元素是否具有某种属性和样式 matchesSelector</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-js-function" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">必备的7个JavaScript函数</h1>
+        <div class="post-meta">
+            <time datetime="2016-07-21T16:00:00.000Z" itemprop="datePublished" class="post-time">
+  2016-07-22
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="防止高频调用的debounce函数"><a href="#防止高频调用的debounce函数" class="headerlink" title="防止高频调用的debounce函数"></a>防止高频调用的debounce函数</h3><p>debounce 函数对于那些执行事件驱动的任务来说是必不可少的提高性能的函数。如果你在使用scroll, resize, key*等事件触发执行任务时不使用降频函数，也行你就犯了重大的错误。下面这个降频函数 debounce 能让你的代码变的高效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function debounce(func, wait, immediate) &#123;</div><div class="line">    var timeout;</div><div class="line">    return function() &#123;</div><div class="line">        var context = this, args = arguments;</div><div class="line">        var later = function() &#123;</div><div class="line">            timeout = null;</div><div class="line">            if (!immediate) func.apply(context, args);</div><div class="line">        &#125;;</div><div class="line">        var callNow = immediate &amp;&amp; !timeout;</div><div class="line">        clearTimeout(timeout);</div><div class="line">        timeout = setTimeout(later, wait);</div><div class="line">        if (callNow) func.apply(context, args);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var myEfficientFn = debounce(function() &#123;</div><div class="line">    // All the taxing stuff you do</div><div class="line">&#125;, 250);</div><div class="line">window.addEventListener(&apos;resize&apos;, myEfficientFn);</div></pre></td></tr></table></figure>
+<p>这个 debounce 函数在给定的时间间隔内只允许你提供的回调函数执行一次，以此降低它的执行频率。当遇到高频触发的事件时，这样的限制显得尤为重要。</p>
+<h3 id="设定时间-频率循环检测函数"><a href="#设定时间-频率循环检测函数" class="headerlink" title="设定时间/频率循环检测函数"></a>设定时间/频率循环检测函数</h3><p>上面提到的 debounce 函数是借助于某个事件的触发。但有时候并没有这样的事件可用，那我们只能自己写一个函数来每隔一段时间检查一次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function poll (fn, callback, err, timeout, interval) &#123;</div><div class="line">    var startTime = (new Date()).getTime();</div><div class="line">    var pi = window.setInterval(function()&#123;</div><div class="line">        if (Math.floor(((new Date).getTime() - startTime) / 1000) &lt;= timeout) &#123;</div><div class="line">            if (fn()) &#123;</div><div class="line">                callback();</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            window.clearInterval(pi);</div><div class="line">            err();</div><div class="line">        &#125;</div><div class="line">    &#125;, interval)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="禁止重复调用、只允许执行一次的once-函数"><a href="#禁止重复调用、只允许执行一次的once-函数" class="headerlink" title="禁止重复调用、只允许执行一次的once 函数"></a>禁止重复调用、只允许执行一次的once 函数</h3><p>很多时候，我们只希望某种动作只能执行一次，就像是我们使用 onload 来限定只在加载完成时执行一次。下面这个函数就能让你的操作执行一次后就不会再重复执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function once(fn, context) &#123; </div><div class="line">    var result;</div><div class="line"></div><div class="line">    return function() &#123; </div><div class="line">        if(fn) &#123;</div><div class="line">            result = fn.apply(context || this, arguments);</div><div class="line">            fn = null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return result;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Usage</div><div class="line">var canOnlyFireOnce = once(function() &#123;</div><div class="line">    console.log(&apos;Fired!&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">canOnlyFireOnce(); // &quot;Fired!&quot;</div><div class="line">canOnlyFireOnce(); // nada</div></pre></td></tr></table></figure>
+<h3 id="获取一个链接的绝对地址-getAbsoluteUrl"><a href="#获取一个链接的绝对地址-getAbsoluteUrl" class="headerlink" title="获取一个链接的绝对地址 getAbsoluteUrl"></a>获取一个链接的绝对地址 getAbsoluteUrl</h3><p>获取链接的绝对地址并不像你想象的那么简单。下面就是一个非常实用的函数，能根据你输入的相对地址，获取绝对地址：<br>var getAbsoluteUrl = (function() {<br>    var a;</p>
+<pre><code>return function(url) {
+    if(!a) a = document.createElement(&apos;a&apos;);
+    a.href = url;
+
+    return a.href;
+};
+</code></pre><p>})();</p>
+<p>// Usage<br>getAbsoluteUrl(‘/something’); // <a href="http://www.webhek.com/something" target="_blank" rel="external">http://www.webhek.com/something</a></p>
+<h3 id="判断一个JavaScript函数是否是系统原生函数-isNative"><a href="#判断一个JavaScript函数是否是系统原生函数-isNative" class="headerlink" title="判断一个JavaScript函数是否是系统原生函数 isNative"></a>判断一个JavaScript函数是否是系统原生函数 isNative</h3><p>很多第三方js脚本都会在全局变量里引入新的函数，有些甚至会覆盖掉系统的原生函数，下面这个方法就是来检查是不是原生函数的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">;(function() &#123;</div><div class="line">  var toString = Object.prototype.toString;</div><div class="line">  var fnToString = Function.prototype.toString;</div><div class="line">  var reHostCtor = /^\[object .+?Constructor\]$/;</div><div class="line">  var reNative = RegExp(&apos;^&apos; +</div><div class="line">    String(toString)</div><div class="line">    .replace(/[.*+?^$&#123;&#125;()|[\]\/\\]/g, &apos;\\$&amp;&apos;)</div><div class="line">    .replace(/toString|(function).*?(?=\\\()| for .+?(?=\\\])/g, &apos;$1.*?&apos;) + &apos;$&apos;</div><div class="line">  );</div><div class="line">  </div><div class="line">  function isNative(value) &#123;</div><div class="line">    var type = typeof value;</div><div class="line">    return type == &apos;function&apos;</div><div class="line">      ? reNative.test(fnToString.call(value))</div><div class="line">      : (value &amp;&amp; type == &apos;object&apos; &amp;&amp; reHostCtor.test(toString.call(value))) || false;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  module.exports = isNative;</div><div class="line">&#125;());</div><div class="line"></div><div class="line">// Usage</div><div class="line">isNative(alert); // true</div><div class="line">isNative(myCustomFunction); // false</div></pre></td></tr></table></figure>
+<h3 id="用JavaScript创建新的CSS规则-insertRule"><a href="#用JavaScript创建新的CSS规则-insertRule" class="headerlink" title="用JavaScript创建新的CSS规则 insertRule"></a>用JavaScript创建新的CSS规则 insertRule</h3><p>有时候我们会使用一个CSS选择器(比如 document.querySelectorAll)来获取一个 NodeList ，然后给它们每个依次修改样式。其实这并不是一种高效的做法，高效的做法是用JavaScript新建一段CSS样式规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Sheet = (function() &#123;</div><div class="line">    var style = document.createElement(&apos;style&apos;);</div><div class="line">    style.setAttribute(&apos;media&apos;, &apos;screen&apos;);</div><div class="line">    style.appendChild(document.createTextNode(&apos;&apos;));</div><div class="line">    document.head.appendChild(style);</div><div class="line">    return function(rule)&#123; style.sheet.insertRule( rule, style.sheet.cssRules.length ); &#125; ;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">Sheet(&quot;.stats &#123; position: relative ; top: 0px &#125;&quot;) ;</div></pre></td></tr></table></figure>
+<p>这些做法的效率非常高，在一些场景中，比如使用ajax新加载一段html时，使用上面这个方法，你不需要操作新加载的html内容。</p>
+<h3 id="判断网页元素是否具有某种属性和样式-matchesSelector"><a href="#判断网页元素是否具有某种属性和样式-matchesSelector" class="headerlink" title="判断网页元素是否具有某种属性和样式 matchesSelector"></a>判断网页元素是否具有某种属性和样式 matchesSelector</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function matchesSelector(el, selector) &#123;</div><div class="line">    var p = Element.prototype;</div><div class="line">    var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function(s) &#123;</div><div class="line">        return [].indexOf.call(document.querySelectorAll(s), this) !== -1;</div><div class="line">    &#125;;</div><div class="line">    return f.call(el, selector);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Usage</div><div class="line">matchesSelector(document.getElementById(&apos;myDiv&apos;), &apos;div.someSelector[some-attribute=true]&apos;)</div></pre></td></tr></table></figure>
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        这里写留言或版权声明：<a href="/template/20160722/js-function/" target="_blank" rel="external">http://yoursite.com/template/20160722/js-function/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/logo.jpg" alt="Shoestrong">
+            Shoestrong
+        </a>
+    </footer>
+</blockquote>
+        
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/template/20160912/sublime-set/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> 上一篇</div>
+        <h4 class="title">sublime 编辑器配置和构建检查</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/template/20160402/jquery-extend/" id="post-next" class="post-nav-link">
+        <div class="tips">下一篇 <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">jQuery.extend扩展</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="js-function" data-title="必备的7个JavaScript函数" data-url="http://yoursite.com/template/20160722/js-function/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'shoestrong', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "必备的7个JavaScript函数",
+pic: "/img/logo.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/template/20160722/js-function/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=true&web_id=true"></script>
+
+
+
+
+
+</body>
+</html>
