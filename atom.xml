@@ -102,11 +102,251 @@
   </entry>
   
   <entry>
-    <title>搞定git分支</title>
-    <link href="http://yoursite.com//template/20161110/jquery-nature/"/>
-    <id>http://yoursite.com//template/20161110/jquery-nature/</id>
-    <published>2016-11-10T02:09:52.000Z</published>
-    <updated>2016-11-16T06:49:39.514Z</updated>
+    <title>sublime 编辑器配置和构建检查</title>
+    <link href="http://yoursite.com//template/20160912/sublime-set/"/>
+    <id>http://yoursite.com//template/20160912/sublime-set/</id>
+    <published>2016-09-12T08:50:00.000Z</published>
+    <updated>2016-11-16T06:27:30.136Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="sublime安装配置"><a href="#sublime安装配置" class="headerlink" title="sublime安装配置"></a>sublime安装配置</h2><h3 id="安装node包"><a href="#安装node包" class="headerlink" title="安装node包"></a>安装node包</h3><ul>
+<li>jscs <code>npm install jscs -g</code></li>
+<li>jshint <code>npm install jshint -g</code></li>
+<li>csscomb <code>npm install csscomb -g</code></li>
+<li>csslint <code>npm install csslint -g</code></li>
+</ul>
+<h3 id="安装gem包"><a href="#安装gem包" class="headerlink" title="安装gem包"></a>安装gem包</h3><ul>
+<li>scss-lint <code>gem install scss_lint</code></li>
+</ul>
+<h3 id="安装sublime3-Package-Control"><a href="#安装sublime3-Package-Control" class="headerlink" title="安装sublime3 Package Control"></a>安装sublime3 <a href="https://packagecontrol.io/installation#st3" target="_blank" rel="external">Package Control</a></h3><ul>
+<li>按下 `ctrl+``</li>
+<li>复制粘贴以下代码 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">`import urllib.request,os,hashlib; h = &apos;eb2297e1a458f27d836c04bb0cbaf282&apos; + &apos;d0e7a3098092775ccb37ca9d6b2e4b7d&apos;; </div><div class="line">    pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest();print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)`</div></pre></td></tr></table></figure>
+<h3 id="安装sublime3插件"><a href="#安装sublime3插件" class="headerlink" title="安装sublime3插件"></a>安装sublime3插件</h3><ul>
+<li>按下 <code>ctrl+shift+p</code>，输入’ip’（Install Package）</li>
+<li><p>输入以下插件的名字，按顺序逐个进行安装：</p>
+<ul>
+<li><code>EditorConfig</code></li>
+<li><code>Sass</code></li>
+<li><code>SublimeLinter</code></li>
+<li><code>SublimeLinter-jscs</code></li>
+<li><code>SublimeLinter-jshint</code></li>
+<li><code>SublimeLinter-csslint</code></li>
+<li><code>SublimeLinter-contrib-scss-lint</code></li>
+<li><code>JSFormat</code></li>
+<li><code>CSScomb</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="插件的配置文件"><a href="#插件的配置文件" class="headerlink" title="插件的配置文件"></a>插件的配置文件</h3><p>将以下配置文件分别下载后放入项目根目录下：</p>
+<ul>
+<li><code>EditorConfig</code><a href="http://alloyteam.github.io/CodeGuide/.editorconfig" target="_blank" rel="external">配置文件</a></li>
+<li><code>JSCS</code><a href="http://alloyteam.github.io/CodeGuide/.jscsrc" target="_blank" rel="external">配置文件</a></li>
+<li><code>JSHint</code><a href="http://alloyteam.github.io/CodeGuide/.jshintrc" target="_blank" rel="external">配置文件</a></li>
+</ul>
+<p>注意：全局变量需要手动加到配置文件的globals属性里，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;globals&quot;: &#123;</div><div class="line">        &quot;ImageHandle&quot;: true</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CSSLint</code><a href="http://alloyteam.github.io/CodeGuide/.csslintrc" target="_blank" rel="external">配置文件</a></li>
+<li><code>SCSS-Lint</code><a href="http://alloyteam.github.io/CodeGuide/.scss-lint.yml" target="_blank" rel="external">配置文件</a></li>
+</ul>
+<h3 id="编辑器及插件设置"><a href="#编辑器及插件设置" class="headerlink" title="编辑器及插件设置"></a>编辑器及插件设置</h3><ul>
+<li><code>sublime3</code> 自身</li>
+</ul>
+<p>Preferences-&gt;Setting-User，增加下面两个配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;translate_tabs_to_spaces&quot;: true,</div><div class="line">    &quot;word_wrap&quot;: true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>点击右下角的Spaces-&gt;Convert Indentation to Spaces可以将文件中的所有tab转换成空格</p>
+<ul>
+<li><p><code>JSFormat</code></p>
+<p>Preferences-&gt;Package Settings-&gt;JSFormat-&gt;Setting-User，下载<a href="http://alloyteam.github.io/CodeGuide/jsformat_setting_user.json" target="_blank" rel="external">配置文件</a>覆盖</p>
+<p>配置好后格式化的默认快捷键是 <code>ctrl+alt+f</code></p>
+</li>
+<li><p><code>SublimeLinter</code></p>
+<p>右键-&gt;SublimeLinter-&gt;Lint Mode，有4种检查模式，建议选择 <code>Load/save</code></p>
+<p>右键-&gt;SublimeLinter-&gt;Mark Style，建议选择 <code>Outline</code></p>
+<p>右键-&gt;SublimeLinter-&gt;Choose Gutter Theme，建议选择 <code>Blueberry-round</code></p>
+<p>右键-&gt;SublimeLinter-&gt;Open User Settings，将linter里面jscs的args改成 <code>[&quot;--verbose&quot;]</code>，将linter里面csslint的ignore改成 <code>&quot;box-model,adjoining-classes,box-sizing,compatible-vendor-prefixes,gradients,text-indent,fallback-colors,star-property-hack,underscore-property-hack,bulletproof-font-face,font-faces,import,regex-selectors,universal-selector,unqualified-attributes,overqualified-elements,duplicate-background-images,floats,font-sizes,ids,important,outline-none,qualified-headings,unique-headings&quot;</code></p>
+<p>当光标处于有错误的代码行时，详细的错误信息会显示在下面的状态栏中</p>
+<p>右键-&gt;SublimeLinter可以看到所有的快捷键，其中 <code>ctrl+k, a</code> 可以列出所有错误</p>
+</li>
+<li><p><code>CSScomb</code></p>
+<p>Preferences-&gt;Package Settings-&gt;CSScomb-&gt;Setting-User，下载<a href="http://alloyteam.github.io/CodeGuide/csscomb_setting_user.json" target="_blank" rel="external">配置文件</a>覆盖</p>
+<p>配置好后格式化的默认快捷键是 <code>ctrl+shift+c</code></p>
+</li>
+</ul>
+<h2 id="grunt插件"><a href="#grunt插件" class="headerlink" title="grunt插件"></a>grunt插件</h2><h3 id="在项目中安装grunt插件"><a href="#在项目中安装grunt插件" class="headerlink" title="在项目中安装grunt插件"></a>在项目中安装grunt插件</h3><p><em>jscs <code>npm install grunt-jscs --save-dev</code>
+</em>jshint <code>npm install grunt-contrib-jshint --save-dev</code><br><em>csslint <code>npm install grunt-contrib-csslint --save-dev</code>
+</em>scss-lint <code>npm install grunt-scss-lint --save-dev</code></p>
+<h3 id="插件的配置文件-1"><a href="#插件的配置文件-1" class="headerlink" title="插件的配置文件"></a>插件的配置文件</h3><ul>
+<li><code>JSCS</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        config: true,</div><div class="line">        verbose: true</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>JSHint</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        jshintrc: true</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>CSSLint</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        csslintrc: &apos;.csslintrc&apos;</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>SCSS-Lint</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        config: &apos;.scss-lint.yml&apos;</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;sublime安装配置&quot;&gt;&lt;a href=&quot;#sublime安装配置&quot; class=&quot;headerlink&quot; title=&quot;sublime安装配置&quot;&gt;&lt;/a&gt;sublime安装配置&lt;/h2&gt;&lt;h3 id=&quot;安装node包&quot;&gt;&lt;a href=&quot;#安装node包&quot; c
+    
+    </summary>
+    
+    
+      <category term="sublime" scheme="http://yoursite.com/tags/sublime/"/>
+    
+      <category term="编辑器" scheme="http://yoursite.com/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>必备的7个JavaScript函数</title>
+    <link href="http://yoursite.com//template/20160722/js-function/"/>
+    <id>http://yoursite.com//template/20160722/js-function/</id>
+    <published>2016-07-21T16:00:00.000Z</published>
+    <updated>2016-11-16T06:27:21.394Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="防止高频调用的debounce函数"><a href="#防止高频调用的debounce函数" class="headerlink" title="防止高频调用的debounce函数"></a>防止高频调用的debounce函数</h3><p>debounce 函数对于那些执行事件驱动的任务来说是必不可少的提高性能的函数。如果你在使用scroll, resize, key*等事件触发执行任务时不使用降频函数，也行你就犯了重大的错误。下面这个降频函数 debounce 能让你的代码变的高效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function debounce(func, wait, immediate) &#123;</div><div class="line">    var timeout;</div><div class="line">    return function() &#123;</div><div class="line">        var context = this, args = arguments;</div><div class="line">        var later = function() &#123;</div><div class="line">            timeout = null;</div><div class="line">            if (!immediate) func.apply(context, args);</div><div class="line">        &#125;;</div><div class="line">        var callNow = immediate &amp;&amp; !timeout;</div><div class="line">        clearTimeout(timeout);</div><div class="line">        timeout = setTimeout(later, wait);</div><div class="line">        if (callNow) func.apply(context, args);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var myEfficientFn = debounce(function() &#123;</div><div class="line">    // All the taxing stuff you do</div><div class="line">&#125;, 250);</div><div class="line">window.addEventListener(&apos;resize&apos;, myEfficientFn);</div></pre></td></tr></table></figure>
+<p>这个 debounce 函数在给定的时间间隔内只允许你提供的回调函数执行一次，以此降低它的执行频率。当遇到高频触发的事件时，这样的限制显得尤为重要。</p>
+<h3 id="设定时间-频率循环检测函数"><a href="#设定时间-频率循环检测函数" class="headerlink" title="设定时间/频率循环检测函数"></a>设定时间/频率循环检测函数</h3><p>上面提到的 debounce 函数是借助于某个事件的触发。但有时候并没有这样的事件可用，那我们只能自己写一个函数来每隔一段时间检查一次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function poll (fn, callback, err, timeout, interval) &#123;</div><div class="line">    var startTime = (new Date()).getTime();</div><div class="line">    var pi = window.setInterval(function()&#123;</div><div class="line">        if (Math.floor(((new Date).getTime() - startTime) / 1000) &lt;= timeout) &#123;</div><div class="line">            if (fn()) &#123;</div><div class="line">                callback();</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            window.clearInterval(pi);</div><div class="line">            err();</div><div class="line">        &#125;</div><div class="line">    &#125;, interval)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="禁止重复调用、只允许执行一次的once-函数"><a href="#禁止重复调用、只允许执行一次的once-函数" class="headerlink" title="禁止重复调用、只允许执行一次的once 函数"></a>禁止重复调用、只允许执行一次的once 函数</h3><p>很多时候，我们只希望某种动作只能执行一次，就像是我们使用 onload 来限定只在加载完成时执行一次。下面这个函数就能让你的操作执行一次后就不会再重复执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function once(fn, context) &#123; </div><div class="line">    var result;</div><div class="line"></div><div class="line">    return function() &#123; </div><div class="line">        if(fn) &#123;</div><div class="line">            result = fn.apply(context || this, arguments);</div><div class="line">            fn = null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return result;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Usage</div><div class="line">var canOnlyFireOnce = once(function() &#123;</div><div class="line">    console.log(&apos;Fired!&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">canOnlyFireOnce(); // &quot;Fired!&quot;</div><div class="line">canOnlyFireOnce(); // nada</div></pre></td></tr></table></figure>
+<h3 id="获取一个链接的绝对地址-getAbsoluteUrl"><a href="#获取一个链接的绝对地址-getAbsoluteUrl" class="headerlink" title="获取一个链接的绝对地址 getAbsoluteUrl"></a>获取一个链接的绝对地址 getAbsoluteUrl</h3><p>获取链接的绝对地址并不像你想象的那么简单。下面就是一个非常实用的函数，能根据你输入的相对地址，获取绝对地址：<br>var getAbsoluteUrl = (function() {<br>    var a;</p>
+<pre><code>return function(url) {
+    if(!a) a = document.createElement(&apos;a&apos;);
+    a.href = url;
+
+    return a.href;
+};
+</code></pre><p>})();</p>
+<p>// Usage<br>getAbsoluteUrl(‘/something’); // <a href="http://www.webhek.com/something" target="_blank" rel="external">http://www.webhek.com/something</a></p>
+<h3 id="判断一个JavaScript函数是否是系统原生函数-isNative"><a href="#判断一个JavaScript函数是否是系统原生函数-isNative" class="headerlink" title="判断一个JavaScript函数是否是系统原生函数 isNative"></a>判断一个JavaScript函数是否是系统原生函数 isNative</h3><p>很多第三方js脚本都会在全局变量里引入新的函数，有些甚至会覆盖掉系统的原生函数，下面这个方法就是来检查是不是原生函数的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">;(function() &#123;</div><div class="line">  var toString = Object.prototype.toString;</div><div class="line">  var fnToString = Function.prototype.toString;</div><div class="line">  var reHostCtor = /^\[object .+?Constructor\]$/;</div><div class="line">  var reNative = RegExp(&apos;^&apos; +</div><div class="line">    String(toString)</div><div class="line">    .replace(/[.*+?^$&#123;&#125;()|[\]\/\\]/g, &apos;\\$&amp;&apos;)</div><div class="line">    .replace(/toString|(function).*?(?=\\\()| for .+?(?=\\\])/g, &apos;$1.*?&apos;) + &apos;$&apos;</div><div class="line">  );</div><div class="line">  </div><div class="line">  function isNative(value) &#123;</div><div class="line">    var type = typeof value;</div><div class="line">    return type == &apos;function&apos;</div><div class="line">      ? reNative.test(fnToString.call(value))</div><div class="line">      : (value &amp;&amp; type == &apos;object&apos; &amp;&amp; reHostCtor.test(toString.call(value))) || false;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  module.exports = isNative;</div><div class="line">&#125;());</div><div class="line"></div><div class="line">// Usage</div><div class="line">isNative(alert); // true</div><div class="line">isNative(myCustomFunction); // false</div></pre></td></tr></table></figure>
+<h3 id="用JavaScript创建新的CSS规则-insertRule"><a href="#用JavaScript创建新的CSS规则-insertRule" class="headerlink" title="用JavaScript创建新的CSS规则 insertRule"></a>用JavaScript创建新的CSS规则 insertRule</h3><p>有时候我们会使用一个CSS选择器(比如 document.querySelectorAll)来获取一个 NodeList ，然后给它们每个依次修改样式。其实这并不是一种高效的做法，高效的做法是用JavaScript新建一段CSS样式规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Sheet = (function() &#123;</div><div class="line">    var style = document.createElement(&apos;style&apos;);</div><div class="line">    style.setAttribute(&apos;media&apos;, &apos;screen&apos;);</div><div class="line">    style.appendChild(document.createTextNode(&apos;&apos;));</div><div class="line">    document.head.appendChild(style);</div><div class="line">    return function(rule)&#123; style.sheet.insertRule( rule, style.sheet.cssRules.length ); &#125; ;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">Sheet(&quot;.stats &#123; position: relative ; top: 0px &#125;&quot;) ;</div></pre></td></tr></table></figure>
+<p>这些做法的效率非常高，在一些场景中，比如使用ajax新加载一段html时，使用上面这个方法，你不需要操作新加载的html内容。</p>
+<h3 id="判断网页元素是否具有某种属性和样式-matchesSelector"><a href="#判断网页元素是否具有某种属性和样式-matchesSelector" class="headerlink" title="判断网页元素是否具有某种属性和样式 matchesSelector"></a>判断网页元素是否具有某种属性和样式 matchesSelector</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function matchesSelector(el, selector) &#123;</div><div class="line">    var p = Element.prototype;</div><div class="line">    var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function(s) &#123;</div><div class="line">        return [].indexOf.call(document.querySelectorAll(s), this) !== -1;</div><div class="line">    &#125;;</div><div class="line">    return f.call(el, selector);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Usage</div><div class="line">matchesSelector(document.getElementById(&apos;myDiv&apos;), &apos;div.someSelector[some-attribute=true]&apos;)</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;防止高频调用的debounce函数&quot;&gt;&lt;a href=&quot;#防止高频调用的debounce函数&quot; class=&quot;headerlink&quot; title=&quot;防止高频调用的debounce函数&quot;&gt;&lt;/a&gt;防止高频调用的debounce函数&lt;/h3&gt;&lt;p&gt;debounce 函
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery.extend扩展</title>
+    <link href="http://yoursite.com//template/20160402/jquery-extend/"/>
+    <id>http://yoursite.com//template/20160402/jquery-extend/</id>
+    <published>2016-04-01T16:00:00.000Z</published>
+    <updated>2016-11-16T06:16:09.828Z</updated>
+    
+    <content type="html"><![CDATA[<p>jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).<br>jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展<br>（相当于添加成员方法）</p>
+<p>源码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;</div><div class="line">    var src, copyIsArray, copy, name, options, clone,</div><div class="line">        target = arguments[0] || &#123;&#125;,    // 常见用法 jQuery.extend( obj1, obj2 )，此时，target为arguments[0]</div><div class="line">        i = 1,</div><div class="line">        length = arguments.length,</div><div class="line">        deep = false;</div><div class="line"></div><div class="line">    // Handle a deep copy situation</div><div class="line">    if ( typeof target === &quot;boolean&quot; ) &#123;    // 如果第一个参数为true，即 jQuery.extend( true, obj1, obj2 ); 的情况</div><div class="line">        deep = target;  // 此时target是true</div><div class="line">        target = arguments[1] || &#123;&#125;;    // target改为 obj1</div><div class="line">        // skip the boolean and the target</div><div class="line">        i = 2;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Handle case when target is a string or something (possible in deep copy)</div><div class="line">    if ( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target) ) &#123;  // 处理奇怪的情况，比如 jQuery.extend( &apos;hello&apos; , &#123;nick: &apos;casper&#125;)~~</div><div class="line">        target = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // extend jQuery itself if only one argument is passed</div><div class="line">    if ( length === i ) &#123;   // 处理这种情况 jQuery.extend(obj)，或 jQuery.fn.extend( obj )</div><div class="line">        target = this;  // jQuery.extend时，this指的是jQuery；jQuery.fn.extend时，this指的是jQuery.fn</div><div class="line">        --i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    for ( ; i &lt; length; i++ ) &#123;</div><div class="line">        // Only deal with non-null/undefined values</div><div class="line">        if ( (options = arguments[ i ]) != null ) &#123; // 比如 jQuery.extend( obj1, obj2, obj3, ojb4 )，options则为 obj2、obj3...</div><div class="line">            // Extend the base object</div><div class="line">            for ( name in options ) &#123;</div><div class="line">                src = target[ name ];</div><div class="line">                copy = options[ name ];</div><div class="line"></div><div class="line">                // Prevent never-ending loop</div><div class="line">                if ( target === copy ) &#123;    // 防止自引用，不赘述</div><div class="line">                    continue;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                // Recurse if we&apos;re merging plain objects or arrays</div><div class="line">                // 如果是深拷贝，且被拷贝的属性值本身是个对象</div><div class="line">                if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) &#123;</div><div class="line">                    if ( copyIsArray ) &#123;    // 被拷贝的属性值是个数组</div><div class="line">                        copyIsArray = false;</div><div class="line">                        clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line"></div><div class="line">                    &#125; else &#123;    被拷贝的属性值是个plainObject，比如&#123; nick: &apos;casper&apos; &#125;</div><div class="line">                        clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    // Never move original objects, clone them</div><div class="line">                    target[ name ] = jQuery.extend( deep, clone, copy );  // 递归~</div><div class="line"></div><div class="line">                // Don&apos;t bring in undefined values</div><div class="line">                &#125; else if ( copy !== undefined ) &#123;  // 浅拷贝，且属性值不为undefined</div><div class="line">                    target[ name ] = copy;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Return the modified object</div><div class="line">    return target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).&lt;br&gt;jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展&lt;br&gt;（相当于添加成员方法）&lt;/p&gt;
+&lt;p
+    
+    </summary>
+    
+    
+      <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>创建对象的方法与实践</title>
+    <link href="http://yoursite.com//template/20160210/create-object/"/>
+    <id>http://yoursite.com//template/20160210/create-object/</id>
+    <published>2016-02-09T16:00:00.000Z</published>
+    <updated>2016-11-16T06:33:19.045Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="创建自变量"><a href="#创建自变量" class="headerlink" title="创建自变量"></a>创建自变量</h3><p>创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板、不需要原型——“噌”地一下，一个有方法有数据的对象就出现了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  x: 42,</div><div class="line">  y: 3.14,</div><div class="line">  f: function() &#123;&#125;,</div><div class="line">  g: function() &#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>缺点：如果我们想在其他地方创建一个同类型的对象，就得把这个对象的方法、数据和初始化都复制粘贴过去。我们需要一种能够批量创建同类型对象的方法，而不是只创建一个对象。</p>
+<h3 id="工厂函数"><a href="#工厂函数" class="headerlink" title="工厂函数"></a>工厂函数</h3><p>这种方法来创建一类具有相同结构、接口和实现的对象是最简单的。我们不直接创建一个对象字面量，而是将对象字面量作为函数的返回值，当我们需要多次或多处创建同类型的对象时，只要调用这个函数就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function thing() &#123;</div><div class="line">  return &#123;</div><div class="line">    x: 42,</div><div class="line">    y: 3.14,</div><div class="line">    f: function() &#123;&#125;,</div><div class="line">    g: function() &#123;&#125;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
+<p>缺点：它会导致内存膨胀，因为每一个对象都包含了工厂函数的独立副本。理论上我们希望所有对象共享一个工厂函数副本。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>JavaScript提供了一种内置的在对象之间共享数据的机制，叫做原型链。当我们访问一个对象的属性时，它会委托某些其他对象来完成这一请求。我们可以利用这一点来修改工厂函数，使它创建的每个对象只包含自己特有的数据，而对其他属性的请求则全部委托给原型链上共有的一个对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var thingPrototype = &#123;</div><div class="line">  f: function() &#123;&#125;,</div><div class="line">  g: function() &#123;&#125;</div><div class="line">&#125;;</div><div class="line">function thing() &#123;</div><div class="line">  var o = Object.create(thingPrototype);</div><div class="line">  o.x = 42;</div><div class="line">  o.y = 3.14;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
+<p>事实上，JavaScript本身就有内置的机制来支持这种通用模式。我们不需要自己创建这个共有的对象（即原型对象），JavaScript会自动为每个函数创建一个原型对象，我们可以把共享数据直接放在这个对象里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">thing.prototype.f = function() &#123;&#125;;</div><div class="line">thing.prototype.g = function() &#123;&#125;;</div><div class="line">function thing() &#123;</div><div class="line">  var o = Object.create(thing.prototype);</div><div class="line">  o.x = 42;</div><div class="line">  o.y = 3.14;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
+<p>缺点：会导致重复。上述thing函数的第一行和最后一行在每一个“委托原型的工厂函数”中都会重复一次，几乎没有区别。</p>
+<h3 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h3><p>我们可以把那些重复的代码抽出来，放进一个自定义函数里。这个函数会创建一个对象，并与其他某个任意函数（参数函数）的原型建立委托(继承)关系，然后我们把新创建的对象作为参数，调用这个函数（参数函数），最后返回这个新的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function create(fn) &#123;</div><div class="line">  var o = Object.create(fn.prototype);</div><div class="line">  fn.call(o);</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">Thing.prototype.f = function() &#123;&#125;;</div><div class="line">Thing.prototype.g = function() &#123;&#125;;</div><div class="line">function Thing() &#123;</div><div class="line">  this.x = 42;</div><div class="line">  this.y = 3.14;</div><div class="line">&#125;</div><div class="line">var o = create(Thing);</div></pre></td></tr></table></figure>
+<p>事实上，JavaScript对这种方法也有内置的支持机制。我们定义的这个create函数实际上就是new关键字的一个基本实现，因此我们可以顺手把create换成new。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Thing.prototype.f = function() &#123;&#125;;</div><div class="line">Thing.prototype.g = function() &#123;&#125;;</div><div class="line">function Thing() &#123;</div><div class="line">  this.x = 42;</div><div class="line">  this.y = 3.14;</div><div class="line">&#125;</div><div class="line">var o = new Thing();</div></pre></td></tr></table></figure>
+<p>我们现在抵达的这一站通常被称为ES5类。它通过函数来创建对象，把需要共享的数据委托给原型对象，并使用new关键字来处理重复的逻辑。<br>缺点：冗长又难看，而且在实现继承的时候会更冗长更难看。</p>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><p>JavaScript最新的相关改进是ES6 类，用新语法来实现上述功能要简洁得多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Thing &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    this.x = 42;</div><div class="line">    this.y = 3.14;</div><div class="line">  &#125;</div><div class="line">  f() &#123;&#125;</div><div class="line">  g() &#123;&#125;</div><div class="line">&#125;</div><div class="line">var o = new Thing();</div></pre></td></tr></table></figure>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>多年以来，JavaScript开发者们与原型链的关系总是若即若离，纠缠不清。而今天我们最有可能遇到的两种创建对象的方式，一种是强烈依赖原型链的class语法，另一种则是完全不依赖原型链的工厂函数语法。这两种方式在性能上和特点上是不一样的——尽管差别不太大。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>今天的JavaScript引擎已经经过了大幅度的优化，以至于很难通过JavaScript代码来推断怎样会比较快。关键在于测量方法。然而测量方法有时也会失灵。通常每六周就会有更新的JavaScript引擎发布，而在这之前采取的测量方法，和基于这种测量方法做出的决策都有可能失去意义。因此，我的经验法则是选择最官方、最广泛使用的语法，因为大多数时候它经历的实践检验最多，因而性能是最高的。目前来说class语法最符合这一点，在我写这篇文章时，class语法大约比返回字面量的工厂函数快3倍。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>随着ES6的发布，类与工厂函数之间曾经存在的几点差异消失了。现在，工厂函数和类都能够强制实现真正的私有数据——工厂函数通过闭包实现，类通过WeakMap实现。两者都能实现多重继承——工厂函数可以将其他属性混入自己的对象，类也可以将其他属性混入自己的原型，或者通过类工厂，通过代理也能实现。工厂函数和类也都可以在需要的时候返回任意对象，语法也都很简单。<br>结论<br>综合考虑，我更倾向于class语法。它标准、简单、干净、快速，还提供了所有曾经只有函数工厂才具备的特点。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;创建自变量&quot;&gt;&lt;a href=&quot;#创建自变量&quot; class=&quot;headerlink&quot; title=&quot;创建自变量&quot;&gt;&lt;/a&gt;创建自变量&lt;/h3&gt;&lt;p&gt;创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jquery 小片段</title>
+    <link href="http://yoursite.com//template/20151223/jquery-bits/"/>
+    <id>http://yoursite.com//template/20151223/jquery-bits/</id>
+    <published>2015-12-22T16:00:00.000Z</published>
+    <updated>2016-11-16T06:42:12.870Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="检测IE浏览器"><a href="#检测IE浏览器" class="headerlink" title="检测IE浏览器"></a>检测IE浏览器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    if(navigator.userAgent.match(/msie/i)) &#123;</div><div class="line">        alert(&apos;I am an old fashioned Internet Explorer&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="平滑滚动至页面顶部"><a href="#平滑滚动至页面顶部" class="headerlink" title="平滑滚动至页面顶部"></a>平滑滚动至页面顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&quot;a[href=&apos;#top&apos;]&quot;).click(function() &#123;</div><div class="line">    $(&quot;html, body&quot;).animate(&#123;</div><div class="line">        scrollTop: 0</div><div class="line">    &#125;, &quot;slow&quot;);</div><div class="line">    return false;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="保持始终处于顶部"><a href="#保持始终处于顶部" class="headerlink" title="保持始终处于顶部"></a>保持始终处于顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$(function() &#123;</div><div class="line">var $win = $(window);</div><div class="line">var $nav = $(&apos;.mytoolbar&apos;);</div><div class="line">var navTop = $(&apos;.mytoolbar&apos;).length &amp;&amp; $(&apos;.mytoolbar&apos;).offset().top;</div><div class="line">var isFixed = 0;</div><div class="line"></div><div class="line">processScroll()</div><div class="line">$win.on(&apos;scroll&apos;, processScroll)</div><div class="line"></div><div class="line">function processScroll() &#123;</div><div class="line">    var i, scrollTop = $win.scrollTop()</div><div class="line">    if(scrollTop &gt;= navTop &amp;&amp; !isFixed) &#123;</div><div class="line">        isFixed = 1</div><div class="line">        $nav.addClass(&apos;subnav-fixed&apos;)</div><div class="line">    &#125; else if(scrollTop &lt;= navTop &amp;&amp; isFixed) &#123;</div><div class="line">        isFixed = 0</div><div class="line">        $nav.removeClass(&apos;subnav-fixed&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="替换html标签"><a href="#替换html标签" class="headerlink" title="替换html标签"></a>替换html标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).replaceWith(function() &#123;</div><div class="line">    return $(&quot;&lt;div /&gt;&quot;).append($(this).contents());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="检测小屏幕宽度"><a href="#检测小屏幕宽度" class="headerlink" title="检测小屏幕宽度"></a>检测小屏幕宽度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var responsive_viewport = $(window).width();</div><div class="line">/* 如果小于 481px */</div><div class="line">if(responsive_viewport &lt; 481) &#123;</div><div class="line">    alert(&apos;屏幕小于481px&apos;);</div><div class="line">&#125; /* 属于小屏 */</div></pre></td></tr></table></figure>
+<h3 id="自动修复损坏图片"><a href="#自动修复损坏图片" class="headerlink" title="自动修复损坏图片"></a>自动修复损坏图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;img&apos;).error(function() &#123;</div><div class="line">    $(this).attr(&apos;src&apos;, &apos;img/broken.png&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="检测复制、-粘贴与剪切操作"><a href="#检测复制、-粘贴与剪切操作" class="headerlink" title="检测复制、 粘贴与剪切操作"></a>检测复制、 粘贴与剪切操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(&quot;#textA&quot;).bind(&apos;copy&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;copy behaviour detected!&apos;)</div><div class="line">&#125;);</div><div class="line">$(&quot;#textA&quot;).bind(&apos;paste&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;paste behaviour detected!&apos;)</div><div class="line">&#125;);</div><div class="line">$(&quot;#textA&quot;).bind(&apos;cut&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;cut behaviour detected!&apos;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="自动为外部链接添加target-“blank”-属性"><a href="#自动为外部链接添加target-“blank”-属性" class="headerlink" title="自动为外部链接添加target = “blank” 属性"></a>自动为外部链接添加target = “blank” 属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var root = location.protocol + &apos;//&apos; + location.host;</div><div class="line">$(&apos;a&apos;).not(&apos;:contains(root)&apos;).click(function() &#123;</div><div class="line">    this.target = &quot;_blank&quot;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="悬停时淡入-淡出"><a href="#悬停时淡入-淡出" class="headerlink" title="悬停时淡入 / 淡出"></a>悬停时淡入 / 淡出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    $(&quot;.thumbs img&quot;).fadeTo(&quot;slow&quot;, 0.6); // This sets the opacity of the thumbs to fade down to 60% when the page loads</div><div class="line">    $(&quot;.thumbs img&quot;).hover(function() &#123;</div><div class="line">        $(this).fadeTo(&quot;slow&quot;, 1.0); // This should set the opacity to 100% on hover</div><div class="line">    &#125;, function() &#123;</div><div class="line">        $(this).fadeTo(&quot;slow&quot;, 0.6); // This should set the opacity back to 60% on mouseout</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="禁用文本-密码输入中的空格"><a href="#禁用文本-密码输入中的空格" class="headerlink" title="禁用文本 / 密码输入中的空格"></a>禁用文本 / 密码输入中的空格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;input.nospace&apos;).keydown(function(e) &#123;</div><div class="line">    if(e.keyCode == 32) &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;检测IE浏览器&quot;&gt;&lt;a href=&quot;#检测IE浏览器&quot; class=&quot;headerlink&quot; title=&quot;检测IE浏览器&quot;&gt;&lt;/a&gt;检测IE浏览器&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
+    
+    </summary>
+    
+    
+      <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jquery留着以后用</title>
+    <link href="http://yoursite.com//template/20151102/jquery-nature/"/>
+    <id>http://yoursite.com//template/20151102/jquery-nature/</id>
+    <published>2015-11-01T16:00:00.000Z</published>
+    <updated>2016-11-16T06:52:45.845Z</updated>
     
     <content type="html"><![CDATA[  <p style="margin: 10px auto; padding-bottom: 10px; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; background-color: rgb(255, 255, 255);">1. 如何创建嵌套的过滤器</p>
   <blockquote style=" border-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-color: rgb(239, 239, 239) rgb(239, 239, 239) rgb(239, 239, 239) rgb(14, 137, 99); padding-top: 0.5em; padding-right: 10px; padding-bottom: 0.5em; margin: 1.5em 10px; color: rgb(51, 51, 51) ; ; ; ; ; ; ; ;; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; background: rgb(249, 249, 249); ">
@@ -532,246 +772,6 @@
     <summary type="html">
     
         &lt;p style=&quot;margin: 10px auto; padding-bottom: 10px; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; ba
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sublime 编辑器配置和构建检查</title>
-    <link href="http://yoursite.com//template/20160912/sublime-set/"/>
-    <id>http://yoursite.com//template/20160912/sublime-set/</id>
-    <published>2016-09-12T08:50:00.000Z</published>
-    <updated>2016-11-16T06:27:30.136Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="sublime安装配置"><a href="#sublime安装配置" class="headerlink" title="sublime安装配置"></a>sublime安装配置</h2><h3 id="安装node包"><a href="#安装node包" class="headerlink" title="安装node包"></a>安装node包</h3><ul>
-<li>jscs <code>npm install jscs -g</code></li>
-<li>jshint <code>npm install jshint -g</code></li>
-<li>csscomb <code>npm install csscomb -g</code></li>
-<li>csslint <code>npm install csslint -g</code></li>
-</ul>
-<h3 id="安装gem包"><a href="#安装gem包" class="headerlink" title="安装gem包"></a>安装gem包</h3><ul>
-<li>scss-lint <code>gem install scss_lint</code></li>
-</ul>
-<h3 id="安装sublime3-Package-Control"><a href="#安装sublime3-Package-Control" class="headerlink" title="安装sublime3 Package Control"></a>安装sublime3 <a href="https://packagecontrol.io/installation#st3" target="_blank" rel="external">Package Control</a></h3><ul>
-<li>按下 `ctrl+``</li>
-<li>复制粘贴以下代码 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">`import urllib.request,os,hashlib; h = &apos;eb2297e1a458f27d836c04bb0cbaf282&apos; + &apos;d0e7a3098092775ccb37ca9d6b2e4b7d&apos;; </div><div class="line">    pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest();print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)`</div></pre></td></tr></table></figure>
-<h3 id="安装sublime3插件"><a href="#安装sublime3插件" class="headerlink" title="安装sublime3插件"></a>安装sublime3插件</h3><ul>
-<li>按下 <code>ctrl+shift+p</code>，输入’ip’（Install Package）</li>
-<li><p>输入以下插件的名字，按顺序逐个进行安装：</p>
-<ul>
-<li><code>EditorConfig</code></li>
-<li><code>Sass</code></li>
-<li><code>SublimeLinter</code></li>
-<li><code>SublimeLinter-jscs</code></li>
-<li><code>SublimeLinter-jshint</code></li>
-<li><code>SublimeLinter-csslint</code></li>
-<li><code>SublimeLinter-contrib-scss-lint</code></li>
-<li><code>JSFormat</code></li>
-<li><code>CSScomb</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="插件的配置文件"><a href="#插件的配置文件" class="headerlink" title="插件的配置文件"></a>插件的配置文件</h3><p>将以下配置文件分别下载后放入项目根目录下：</p>
-<ul>
-<li><code>EditorConfig</code><a href="http://alloyteam.github.io/CodeGuide/.editorconfig" target="_blank" rel="external">配置文件</a></li>
-<li><code>JSCS</code><a href="http://alloyteam.github.io/CodeGuide/.jscsrc" target="_blank" rel="external">配置文件</a></li>
-<li><code>JSHint</code><a href="http://alloyteam.github.io/CodeGuide/.jshintrc" target="_blank" rel="external">配置文件</a></li>
-</ul>
-<p>注意：全局变量需要手动加到配置文件的globals属性里，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;globals&quot;: &#123;</div><div class="line">        &quot;ImageHandle&quot;: true</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>CSSLint</code><a href="http://alloyteam.github.io/CodeGuide/.csslintrc" target="_blank" rel="external">配置文件</a></li>
-<li><code>SCSS-Lint</code><a href="http://alloyteam.github.io/CodeGuide/.scss-lint.yml" target="_blank" rel="external">配置文件</a></li>
-</ul>
-<h3 id="编辑器及插件设置"><a href="#编辑器及插件设置" class="headerlink" title="编辑器及插件设置"></a>编辑器及插件设置</h3><ul>
-<li><code>sublime3</code> 自身</li>
-</ul>
-<p>Preferences-&gt;Setting-User，增加下面两个配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;translate_tabs_to_spaces&quot;: true,</div><div class="line">    &quot;word_wrap&quot;: true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>点击右下角的Spaces-&gt;Convert Indentation to Spaces可以将文件中的所有tab转换成空格</p>
-<ul>
-<li><p><code>JSFormat</code></p>
-<p>Preferences-&gt;Package Settings-&gt;JSFormat-&gt;Setting-User，下载<a href="http://alloyteam.github.io/CodeGuide/jsformat_setting_user.json" target="_blank" rel="external">配置文件</a>覆盖</p>
-<p>配置好后格式化的默认快捷键是 <code>ctrl+alt+f</code></p>
-</li>
-<li><p><code>SublimeLinter</code></p>
-<p>右键-&gt;SublimeLinter-&gt;Lint Mode，有4种检查模式，建议选择 <code>Load/save</code></p>
-<p>右键-&gt;SublimeLinter-&gt;Mark Style，建议选择 <code>Outline</code></p>
-<p>右键-&gt;SublimeLinter-&gt;Choose Gutter Theme，建议选择 <code>Blueberry-round</code></p>
-<p>右键-&gt;SublimeLinter-&gt;Open User Settings，将linter里面jscs的args改成 <code>[&quot;--verbose&quot;]</code>，将linter里面csslint的ignore改成 <code>&quot;box-model,adjoining-classes,box-sizing,compatible-vendor-prefixes,gradients,text-indent,fallback-colors,star-property-hack,underscore-property-hack,bulletproof-font-face,font-faces,import,regex-selectors,universal-selector,unqualified-attributes,overqualified-elements,duplicate-background-images,floats,font-sizes,ids,important,outline-none,qualified-headings,unique-headings&quot;</code></p>
-<p>当光标处于有错误的代码行时，详细的错误信息会显示在下面的状态栏中</p>
-<p>右键-&gt;SublimeLinter可以看到所有的快捷键，其中 <code>ctrl+k, a</code> 可以列出所有错误</p>
-</li>
-<li><p><code>CSScomb</code></p>
-<p>Preferences-&gt;Package Settings-&gt;CSScomb-&gt;Setting-User，下载<a href="http://alloyteam.github.io/CodeGuide/csscomb_setting_user.json" target="_blank" rel="external">配置文件</a>覆盖</p>
-<p>配置好后格式化的默认快捷键是 <code>ctrl+shift+c</code></p>
-</li>
-</ul>
-<h2 id="grunt插件"><a href="#grunt插件" class="headerlink" title="grunt插件"></a>grunt插件</h2><h3 id="在项目中安装grunt插件"><a href="#在项目中安装grunt插件" class="headerlink" title="在项目中安装grunt插件"></a>在项目中安装grunt插件</h3><p><em>jscs <code>npm install grunt-jscs --save-dev</code>
-</em>jshint <code>npm install grunt-contrib-jshint --save-dev</code><br><em>csslint <code>npm install grunt-contrib-csslint --save-dev</code>
-</em>scss-lint <code>npm install grunt-scss-lint --save-dev</code></p>
-<h3 id="插件的配置文件-1"><a href="#插件的配置文件-1" class="headerlink" title="插件的配置文件"></a>插件的配置文件</h3><ul>
-<li><code>JSCS</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        config: true,</div><div class="line">        verbose: true</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>JSHint</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        jshintrc: true</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>CSSLint</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        csslintrc: &apos;.csslintrc&apos;</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><code>SCSS-Lint</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    options: &#123;</div><div class="line">        config: &apos;.scss-lint.yml&apos;</div><div class="line">    &#125;,</div><div class="line">    files: &#123;</div><div class="line">        src: [...]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;sublime安装配置&quot;&gt;&lt;a href=&quot;#sublime安装配置&quot; class=&quot;headerlink&quot; title=&quot;sublime安装配置&quot;&gt;&lt;/a&gt;sublime安装配置&lt;/h2&gt;&lt;h3 id=&quot;安装node包&quot;&gt;&lt;a href=&quot;#安装node包&quot; c
-    
-    </summary>
-    
-    
-      <category term="sublime" scheme="http://yoursite.com/tags/sublime/"/>
-    
-      <category term="编辑器" scheme="http://yoursite.com/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>必备的7个JavaScript函数</title>
-    <link href="http://yoursite.com//template/20160722/js-function/"/>
-    <id>http://yoursite.com//template/20160722/js-function/</id>
-    <published>2016-07-21T16:00:00.000Z</published>
-    <updated>2016-11-16T06:27:21.394Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="防止高频调用的debounce函数"><a href="#防止高频调用的debounce函数" class="headerlink" title="防止高频调用的debounce函数"></a>防止高频调用的debounce函数</h3><p>debounce 函数对于那些执行事件驱动的任务来说是必不可少的提高性能的函数。如果你在使用scroll, resize, key*等事件触发执行任务时不使用降频函数，也行你就犯了重大的错误。下面这个降频函数 debounce 能让你的代码变的高效：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function debounce(func, wait, immediate) &#123;</div><div class="line">    var timeout;</div><div class="line">    return function() &#123;</div><div class="line">        var context = this, args = arguments;</div><div class="line">        var later = function() &#123;</div><div class="line">            timeout = null;</div><div class="line">            if (!immediate) func.apply(context, args);</div><div class="line">        &#125;;</div><div class="line">        var callNow = immediate &amp;&amp; !timeout;</div><div class="line">        clearTimeout(timeout);</div><div class="line">        timeout = setTimeout(later, wait);</div><div class="line">        if (callNow) func.apply(context, args);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var myEfficientFn = debounce(function() &#123;</div><div class="line">    // All the taxing stuff you do</div><div class="line">&#125;, 250);</div><div class="line">window.addEventListener(&apos;resize&apos;, myEfficientFn);</div></pre></td></tr></table></figure>
-<p>这个 debounce 函数在给定的时间间隔内只允许你提供的回调函数执行一次，以此降低它的执行频率。当遇到高频触发的事件时，这样的限制显得尤为重要。</p>
-<h3 id="设定时间-频率循环检测函数"><a href="#设定时间-频率循环检测函数" class="headerlink" title="设定时间/频率循环检测函数"></a>设定时间/频率循环检测函数</h3><p>上面提到的 debounce 函数是借助于某个事件的触发。但有时候并没有这样的事件可用，那我们只能自己写一个函数来每隔一段时间检查一次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function poll (fn, callback, err, timeout, interval) &#123;</div><div class="line">    var startTime = (new Date()).getTime();</div><div class="line">    var pi = window.setInterval(function()&#123;</div><div class="line">        if (Math.floor(((new Date).getTime() - startTime) / 1000) &lt;= timeout) &#123;</div><div class="line">            if (fn()) &#123;</div><div class="line">                callback();</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            window.clearInterval(pi);</div><div class="line">            err();</div><div class="line">        &#125;</div><div class="line">    &#125;, interval)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="禁止重复调用、只允许执行一次的once-函数"><a href="#禁止重复调用、只允许执行一次的once-函数" class="headerlink" title="禁止重复调用、只允许执行一次的once 函数"></a>禁止重复调用、只允许执行一次的once 函数</h3><p>很多时候，我们只希望某种动作只能执行一次，就像是我们使用 onload 来限定只在加载完成时执行一次。下面这个函数就能让你的操作执行一次后就不会再重复执行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function once(fn, context) &#123; </div><div class="line">    var result;</div><div class="line"></div><div class="line">    return function() &#123; </div><div class="line">        if(fn) &#123;</div><div class="line">            result = fn.apply(context || this, arguments);</div><div class="line">            fn = null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return result;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Usage</div><div class="line">var canOnlyFireOnce = once(function() &#123;</div><div class="line">    console.log(&apos;Fired!&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">canOnlyFireOnce(); // &quot;Fired!&quot;</div><div class="line">canOnlyFireOnce(); // nada</div></pre></td></tr></table></figure>
-<h3 id="获取一个链接的绝对地址-getAbsoluteUrl"><a href="#获取一个链接的绝对地址-getAbsoluteUrl" class="headerlink" title="获取一个链接的绝对地址 getAbsoluteUrl"></a>获取一个链接的绝对地址 getAbsoluteUrl</h3><p>获取链接的绝对地址并不像你想象的那么简单。下面就是一个非常实用的函数，能根据你输入的相对地址，获取绝对地址：<br>var getAbsoluteUrl = (function() {<br>    var a;</p>
-<pre><code>return function(url) {
-    if(!a) a = document.createElement(&apos;a&apos;);
-    a.href = url;
-
-    return a.href;
-};
-</code></pre><p>})();</p>
-<p>// Usage<br>getAbsoluteUrl(‘/something’); // <a href="http://www.webhek.com/something" target="_blank" rel="external">http://www.webhek.com/something</a></p>
-<h3 id="判断一个JavaScript函数是否是系统原生函数-isNative"><a href="#判断一个JavaScript函数是否是系统原生函数-isNative" class="headerlink" title="判断一个JavaScript函数是否是系统原生函数 isNative"></a>判断一个JavaScript函数是否是系统原生函数 isNative</h3><p>很多第三方js脚本都会在全局变量里引入新的函数，有些甚至会覆盖掉系统的原生函数，下面这个方法就是来检查是不是原生函数的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">;(function() &#123;</div><div class="line">  var toString = Object.prototype.toString;</div><div class="line">  var fnToString = Function.prototype.toString;</div><div class="line">  var reHostCtor = /^\[object .+?Constructor\]$/;</div><div class="line">  var reNative = RegExp(&apos;^&apos; +</div><div class="line">    String(toString)</div><div class="line">    .replace(/[.*+?^$&#123;&#125;()|[\]\/\\]/g, &apos;\\$&amp;&apos;)</div><div class="line">    .replace(/toString|(function).*?(?=\\\()| for .+?(?=\\\])/g, &apos;$1.*?&apos;) + &apos;$&apos;</div><div class="line">  );</div><div class="line">  </div><div class="line">  function isNative(value) &#123;</div><div class="line">    var type = typeof value;</div><div class="line">    return type == &apos;function&apos;</div><div class="line">      ? reNative.test(fnToString.call(value))</div><div class="line">      : (value &amp;&amp; type == &apos;object&apos; &amp;&amp; reHostCtor.test(toString.call(value))) || false;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  module.exports = isNative;</div><div class="line">&#125;());</div><div class="line"></div><div class="line">// Usage</div><div class="line">isNative(alert); // true</div><div class="line">isNative(myCustomFunction); // false</div></pre></td></tr></table></figure>
-<h3 id="用JavaScript创建新的CSS规则-insertRule"><a href="#用JavaScript创建新的CSS规则-insertRule" class="headerlink" title="用JavaScript创建新的CSS规则 insertRule"></a>用JavaScript创建新的CSS规则 insertRule</h3><p>有时候我们会使用一个CSS选择器(比如 document.querySelectorAll)来获取一个 NodeList ，然后给它们每个依次修改样式。其实这并不是一种高效的做法，高效的做法是用JavaScript新建一段CSS样式规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Sheet = (function() &#123;</div><div class="line">    var style = document.createElement(&apos;style&apos;);</div><div class="line">    style.setAttribute(&apos;media&apos;, &apos;screen&apos;);</div><div class="line">    style.appendChild(document.createTextNode(&apos;&apos;));</div><div class="line">    document.head.appendChild(style);</div><div class="line">    return function(rule)&#123; style.sheet.insertRule( rule, style.sheet.cssRules.length ); &#125; ;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">Sheet(&quot;.stats &#123; position: relative ; top: 0px &#125;&quot;) ;</div></pre></td></tr></table></figure>
-<p>这些做法的效率非常高，在一些场景中，比如使用ajax新加载一段html时，使用上面这个方法，你不需要操作新加载的html内容。</p>
-<h3 id="判断网页元素是否具有某种属性和样式-matchesSelector"><a href="#判断网页元素是否具有某种属性和样式-matchesSelector" class="headerlink" title="判断网页元素是否具有某种属性和样式 matchesSelector"></a>判断网页元素是否具有某种属性和样式 matchesSelector</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function matchesSelector(el, selector) &#123;</div><div class="line">    var p = Element.prototype;</div><div class="line">    var f = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector || function(s) &#123;</div><div class="line">        return [].indexOf.call(document.querySelectorAll(s), this) !== -1;</div><div class="line">    &#125;;</div><div class="line">    return f.call(el, selector);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Usage</div><div class="line">matchesSelector(document.getElementById(&apos;myDiv&apos;), &apos;div.someSelector[some-attribute=true]&apos;)</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;防止高频调用的debounce函数&quot;&gt;&lt;a href=&quot;#防止高频调用的debounce函数&quot; class=&quot;headerlink&quot; title=&quot;防止高频调用的debounce函数&quot;&gt;&lt;/a&gt;防止高频调用的debounce函数&lt;/h3&gt;&lt;p&gt;debounce 函
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery.extend扩展</title>
-    <link href="http://yoursite.com//template/20160402/jquery-extend/"/>
-    <id>http://yoursite.com//template/20160402/jquery-extend/</id>
-    <published>2016-04-01T16:00:00.000Z</published>
-    <updated>2016-11-16T06:16:09.828Z</updated>
-    
-    <content type="html"><![CDATA[<p>jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).<br>jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展<br>（相当于添加成员方法）</p>
-<p>源码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = function() &#123;</div><div class="line">    var src, copyIsArray, copy, name, options, clone,</div><div class="line">        target = arguments[0] || &#123;&#125;,    // 常见用法 jQuery.extend( obj1, obj2 )，此时，target为arguments[0]</div><div class="line">        i = 1,</div><div class="line">        length = arguments.length,</div><div class="line">        deep = false;</div><div class="line"></div><div class="line">    // Handle a deep copy situation</div><div class="line">    if ( typeof target === &quot;boolean&quot; ) &#123;    // 如果第一个参数为true，即 jQuery.extend( true, obj1, obj2 ); 的情况</div><div class="line">        deep = target;  // 此时target是true</div><div class="line">        target = arguments[1] || &#123;&#125;;    // target改为 obj1</div><div class="line">        // skip the boolean and the target</div><div class="line">        i = 2;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Handle case when target is a string or something (possible in deep copy)</div><div class="line">    if ( typeof target !== &quot;object&quot; &amp;&amp; !jQuery.isFunction(target) ) &#123;  // 处理奇怪的情况，比如 jQuery.extend( &apos;hello&apos; , &#123;nick: &apos;casper&#125;)~~</div><div class="line">        target = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // extend jQuery itself if only one argument is passed</div><div class="line">    if ( length === i ) &#123;   // 处理这种情况 jQuery.extend(obj)，或 jQuery.fn.extend( obj )</div><div class="line">        target = this;  // jQuery.extend时，this指的是jQuery；jQuery.fn.extend时，this指的是jQuery.fn</div><div class="line">        --i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    for ( ; i &lt; length; i++ ) &#123;</div><div class="line">        // Only deal with non-null/undefined values</div><div class="line">        if ( (options = arguments[ i ]) != null ) &#123; // 比如 jQuery.extend( obj1, obj2, obj3, ojb4 )，options则为 obj2、obj3...</div><div class="line">            // Extend the base object</div><div class="line">            for ( name in options ) &#123;</div><div class="line">                src = target[ name ];</div><div class="line">                copy = options[ name ];</div><div class="line"></div><div class="line">                // Prevent never-ending loop</div><div class="line">                if ( target === copy ) &#123;    // 防止自引用，不赘述</div><div class="line">                    continue;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                // Recurse if we&apos;re merging plain objects or arrays</div><div class="line">                // 如果是深拷贝，且被拷贝的属性值本身是个对象</div><div class="line">                if ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) &#123;</div><div class="line">                    if ( copyIsArray ) &#123;    // 被拷贝的属性值是个数组</div><div class="line">                        copyIsArray = false;</div><div class="line">                        clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line"></div><div class="line">                    &#125; else &#123;    被拷贝的属性值是个plainObject，比如&#123; nick: &apos;casper&apos; &#125;</div><div class="line">                        clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    // Never move original objects, clone them</div><div class="line">                    target[ name ] = jQuery.extend( deep, clone, copy );  // 递归~</div><div class="line"></div><div class="line">                // Don&apos;t bring in undefined values</div><div class="line">                &#125; else if ( copy !== undefined ) &#123;  // 浅拷贝，且属性值不为undefined</div><div class="line">                    target[ name ] = copy;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // Return the modified object</div><div class="line">    return target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;jQuery.extend 对jQuery本身的属性和方法进行了扩展、（相当于添加静态方法），也可以扩展对象，是否实行深度拷贝(第一个参数决定).&lt;br&gt;jQuery.fn.extend 对jQuery.fn的属性和方法进行了扩展&lt;br&gt;（相当于添加成员方法）&lt;/p&gt;
-&lt;p
-    
-    </summary>
-    
-    
-      <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>创建对象的方法与实践</title>
-    <link href="http://yoursite.com//template/20160210/create-object/"/>
-    <id>http://yoursite.com//template/20160210/create-object/</id>
-    <published>2016-02-09T16:00:00.000Z</published>
-    <updated>2016-11-16T06:33:19.045Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="创建自变量"><a href="#创建自变量" class="headerlink" title="创建自变量"></a>创建自变量</h3><p>创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板、不需要原型——“噌”地一下，一个有方法有数据的对象就出现了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  x: 42,</div><div class="line">  y: 3.14,</div><div class="line">  f: function() &#123;&#125;,</div><div class="line">  g: function() &#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>缺点：如果我们想在其他地方创建一个同类型的对象，就得把这个对象的方法、数据和初始化都复制粘贴过去。我们需要一种能够批量创建同类型对象的方法，而不是只创建一个对象。</p>
-<h3 id="工厂函数"><a href="#工厂函数" class="headerlink" title="工厂函数"></a>工厂函数</h3><p>这种方法来创建一类具有相同结构、接口和实现的对象是最简单的。我们不直接创建一个对象字面量，而是将对象字面量作为函数的返回值，当我们需要多次或多处创建同类型的对象时，只要调用这个函数就行了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function thing() &#123;</div><div class="line">  return &#123;</div><div class="line">    x: 42,</div><div class="line">    y: 3.14,</div><div class="line">    f: function() &#123;&#125;,</div><div class="line">    g: function() &#123;&#125;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
-<p>缺点：它会导致内存膨胀，因为每一个对象都包含了工厂函数的独立副本。理论上我们希望所有对象共享一个工厂函数副本。</p>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>JavaScript提供了一种内置的在对象之间共享数据的机制，叫做原型链。当我们访问一个对象的属性时，它会委托某些其他对象来完成这一请求。我们可以利用这一点来修改工厂函数，使它创建的每个对象只包含自己特有的数据，而对其他属性的请求则全部委托给原型链上共有的一个对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var thingPrototype = &#123;</div><div class="line">  f: function() &#123;&#125;,</div><div class="line">  g: function() &#123;&#125;</div><div class="line">&#125;;</div><div class="line">function thing() &#123;</div><div class="line">  var o = Object.create(thingPrototype);</div><div class="line">  o.x = 42;</div><div class="line">  o.y = 3.14;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
-<p>事实上，JavaScript本身就有内置的机制来支持这种通用模式。我们不需要自己创建这个共有的对象（即原型对象），JavaScript会自动为每个函数创建一个原型对象，我们可以把共享数据直接放在这个对象里。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">thing.prototype.f = function() &#123;&#125;;</div><div class="line">thing.prototype.g = function() &#123;&#125;;</div><div class="line">function thing() &#123;</div><div class="line">  var o = Object.create(thing.prototype);</div><div class="line">  o.x = 42;</div><div class="line">  o.y = 3.14;</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">var o = thing();</div></pre></td></tr></table></figure>
-<p>缺点：会导致重复。上述thing函数的第一行和最后一行在每一个“委托原型的工厂函数”中都会重复一次，几乎没有区别。</p>
-<h3 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h3><p>我们可以把那些重复的代码抽出来，放进一个自定义函数里。这个函数会创建一个对象，并与其他某个任意函数（参数函数）的原型建立委托(继承)关系，然后我们把新创建的对象作为参数，调用这个函数（参数函数），最后返回这个新的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function create(fn) &#123;</div><div class="line">  var o = Object.create(fn.prototype);</div><div class="line">  fn.call(o);</div><div class="line">  return o;</div><div class="line">&#125;</div><div class="line">Thing.prototype.f = function() &#123;&#125;;</div><div class="line">Thing.prototype.g = function() &#123;&#125;;</div><div class="line">function Thing() &#123;</div><div class="line">  this.x = 42;</div><div class="line">  this.y = 3.14;</div><div class="line">&#125;</div><div class="line">var o = create(Thing);</div></pre></td></tr></table></figure>
-<p>事实上，JavaScript对这种方法也有内置的支持机制。我们定义的这个create函数实际上就是new关键字的一个基本实现，因此我们可以顺手把create换成new。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Thing.prototype.f = function() &#123;&#125;;</div><div class="line">Thing.prototype.g = function() &#123;&#125;;</div><div class="line">function Thing() &#123;</div><div class="line">  this.x = 42;</div><div class="line">  this.y = 3.14;</div><div class="line">&#125;</div><div class="line">var o = new Thing();</div></pre></td></tr></table></figure>
-<p>我们现在抵达的这一站通常被称为ES5类。它通过函数来创建对象，把需要共享的数据委托给原型对象，并使用new关键字来处理重复的逻辑。<br>缺点：冗长又难看，而且在实现继承的时候会更冗长更难看。</p>
-<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><p>JavaScript最新的相关改进是ES6 类，用新语法来实现上述功能要简洁得多。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Thing &#123;</div><div class="line">  constructor() &#123;</div><div class="line">    this.x = 42;</div><div class="line">    this.y = 3.14;</div><div class="line">  &#125;</div><div class="line">  f() &#123;&#125;</div><div class="line">  g() &#123;&#125;</div><div class="line">&#125;</div><div class="line">var o = new Thing();</div></pre></td></tr></table></figure>
-<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>多年以来，JavaScript开发者们与原型链的关系总是若即若离，纠缠不清。而今天我们最有可能遇到的两种创建对象的方式，一种是强烈依赖原型链的class语法，另一种则是完全不依赖原型链的工厂函数语法。这两种方式在性能上和特点上是不一样的——尽管差别不太大。</p>
-<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>今天的JavaScript引擎已经经过了大幅度的优化，以至于很难通过JavaScript代码来推断怎样会比较快。关键在于测量方法。然而测量方法有时也会失灵。通常每六周就会有更新的JavaScript引擎发布，而在这之前采取的测量方法，和基于这种测量方法做出的决策都有可能失去意义。因此，我的经验法则是选择最官方、最广泛使用的语法，因为大多数时候它经历的实践检验最多，因而性能是最高的。目前来说class语法最符合这一点，在我写这篇文章时，class语法大约比返回字面量的工厂函数快3倍。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>随着ES6的发布，类与工厂函数之间曾经存在的几点差异消失了。现在，工厂函数和类都能够强制实现真正的私有数据——工厂函数通过闭包实现，类通过WeakMap实现。两者都能实现多重继承——工厂函数可以将其他属性混入自己的对象，类也可以将其他属性混入自己的原型，或者通过类工厂，通过代理也能实现。工厂函数和类也都可以在需要的时候返回任意对象，语法也都很简单。<br>结论<br>综合考虑，我更倾向于class语法。它标准、简单、干净、快速，还提供了所有曾经只有函数工厂才具备的特点。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;创建自变量&quot;&gt;&lt;a href=&quot;#创建自变量&quot; class=&quot;headerlink&quot; title=&quot;创建自变量&quot;&gt;&lt;/a&gt;创建自变量&lt;/h3&gt;&lt;p&gt;创建对象最简单的方法，对象字面量。JavaScript总是宣扬自己能够“无中生有”地创建对象——不需要类、不需要模板
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jquery 小片段</title>
-    <link href="http://yoursite.com//template/20151223/jquery-bits/"/>
-    <id>http://yoursite.com//template/20151223/jquery-bits/</id>
-    <published>2015-12-22T16:00:00.000Z</published>
-    <updated>2016-11-16T06:42:12.870Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="检测IE浏览器"><a href="#检测IE浏览器" class="headerlink" title="检测IE浏览器"></a>检测IE浏览器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    if(navigator.userAgent.match(/msie/i)) &#123;</div><div class="line">        alert(&apos;I am an old fashioned Internet Explorer&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="平滑滚动至页面顶部"><a href="#平滑滚动至页面顶部" class="headerlink" title="平滑滚动至页面顶部"></a>平滑滚动至页面顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(&quot;a[href=&apos;#top&apos;]&quot;).click(function() &#123;</div><div class="line">    $(&quot;html, body&quot;).animate(&#123;</div><div class="line">        scrollTop: 0</div><div class="line">    &#125;, &quot;slow&quot;);</div><div class="line">    return false;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="保持始终处于顶部"><a href="#保持始终处于顶部" class="headerlink" title="保持始终处于顶部"></a>保持始终处于顶部</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$(function() &#123;</div><div class="line">var $win = $(window);</div><div class="line">var $nav = $(&apos;.mytoolbar&apos;);</div><div class="line">var navTop = $(&apos;.mytoolbar&apos;).length &amp;&amp; $(&apos;.mytoolbar&apos;).offset().top;</div><div class="line">var isFixed = 0;</div><div class="line"></div><div class="line">processScroll()</div><div class="line">$win.on(&apos;scroll&apos;, processScroll)</div><div class="line"></div><div class="line">function processScroll() &#123;</div><div class="line">    var i, scrollTop = $win.scrollTop()</div><div class="line">    if(scrollTop &gt;= navTop &amp;&amp; !isFixed) &#123;</div><div class="line">        isFixed = 1</div><div class="line">        $nav.addClass(&apos;subnav-fixed&apos;)</div><div class="line">    &#125; else if(scrollTop &lt;= navTop &amp;&amp; isFixed) &#123;</div><div class="line">        isFixed = 0</div><div class="line">        $nav.removeClass(&apos;subnav-fixed&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="替换html标签"><a href="#替换html标签" class="headerlink" title="替换html标签"></a>替换html标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).replaceWith(function() &#123;</div><div class="line">    return $(&quot;&lt;div /&gt;&quot;).append($(this).contents());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="检测小屏幕宽度"><a href="#检测小屏幕宽度" class="headerlink" title="检测小屏幕宽度"></a>检测小屏幕宽度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var responsive_viewport = $(window).width();</div><div class="line">/* 如果小于 481px */</div><div class="line">if(responsive_viewport &lt; 481) &#123;</div><div class="line">    alert(&apos;屏幕小于481px&apos;);</div><div class="line">&#125; /* 属于小屏 */</div></pre></td></tr></table></figure>
-<h3 id="自动修复损坏图片"><a href="#自动修复损坏图片" class="headerlink" title="自动修复损坏图片"></a>自动修复损坏图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(&apos;img&apos;).error(function() &#123;</div><div class="line">    $(this).attr(&apos;src&apos;, &apos;img/broken.png&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="检测复制、-粘贴与剪切操作"><a href="#检测复制、-粘贴与剪切操作" class="headerlink" title="检测复制、 粘贴与剪切操作"></a>检测复制、 粘贴与剪切操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(&quot;#textA&quot;).bind(&apos;copy&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;copy behaviour detected!&apos;)</div><div class="line">&#125;);</div><div class="line">$(&quot;#textA&quot;).bind(&apos;paste&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;paste behaviour detected!&apos;)</div><div class="line">&#125;);</div><div class="line">$(&quot;#textA&quot;).bind(&apos;cut&apos;, function() &#123;</div><div class="line">    $(&apos;span&apos;).text(&apos;cut behaviour detected!&apos;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="自动为外部链接添加target-“blank”-属性"><a href="#自动为外部链接添加target-“blank”-属性" class="headerlink" title="自动为外部链接添加target = “blank” 属性"></a>自动为外部链接添加target = “blank” 属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var root = location.protocol + &apos;//&apos; + location.host;</div><div class="line">$(&apos;a&apos;).not(&apos;:contains(root)&apos;).click(function() &#123;</div><div class="line">    this.target = &quot;_blank&quot;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="悬停时淡入-淡出"><a href="#悬停时淡入-淡出" class="headerlink" title="悬停时淡入 / 淡出"></a>悬停时淡入 / 淡出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function() &#123;</div><div class="line">    $(&quot;.thumbs img&quot;).fadeTo(&quot;slow&quot;, 0.6); // This sets the opacity of the thumbs to fade down to 60% when the page loads</div><div class="line">    $(&quot;.thumbs img&quot;).hover(function() &#123;</div><div class="line">        $(this).fadeTo(&quot;slow&quot;, 1.0); // This should set the opacity to 100% on hover</div><div class="line">    &#125;, function() &#123;</div><div class="line">        $(this).fadeTo(&quot;slow&quot;, 0.6); // This should set the opacity back to 60% on mouseout</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="禁用文本-密码输入中的空格"><a href="#禁用文本-密码输入中的空格" class="headerlink" title="禁用文本 / 密码输入中的空格"></a>禁用文本 / 密码输入中的空格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&apos;input.nospace&apos;).keydown(function(e) &#123;</div><div class="line">    if(e.keyCode == 32) &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;检测IE浏览器&quot;&gt;&lt;a href=&quot;#检测IE浏览器&quot; class=&quot;headerlink&quot; title=&quot;检测IE浏览器&quot;&gt;&lt;/a&gt;检测IE浏览器&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
     
     </summary>
     
