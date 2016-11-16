@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Shoestrong&#39;s blog</title>
+  <title>南柯一梦 梦一醒 理已懂</title>
   
   <link href="/atom.xml" rel="self"/>
   
@@ -17,8 +17,8 @@
   
   <entry>
     <title>node.js建立个简单的web服务器</title>
-    <link href="http://yoursite.com//note/20161115node-webserver/"/>
-    <id>http://yoursite.com//note/20161115node-webserver/</id>
+    <link href="http://yoursite.com//template/20161115/node-webserver/"/>
+    <id>http://yoursite.com//template/20161115/node-webserver/</id>
     <published>2016-11-15T02:09:52.000Z</published>
     <updated>2016-11-15T15:55:58.050Z</updated>
     
@@ -49,8 +49,8 @@
   
   <entry>
     <title>搞定git分支</title>
-    <link href="http://yoursite.com//note/20161110git-master/"/>
-    <id>http://yoursite.com//note/20161110git-master/</id>
+    <link href="http://yoursite.com//template/20161110/git-master/"/>
+    <id>http://yoursite.com//template/20161110/git-master/</id>
     <published>2016-11-10T02:09:52.000Z</published>
     <updated>2016-11-15T04:03:36.484Z</updated>
     
@@ -103,8 +103,8 @@
   
   <entry>
     <title>sublime 编辑器配置和构建检查</title>
-    <link href="http://yoursite.com//note/20160912sublime-set/"/>
-    <id>http://yoursite.com//note/20160912sublime-set/</id>
+    <link href="http://yoursite.com//template/20160912/sublime-set/"/>
+    <id>http://yoursite.com//template/20160912/sublime-set/</id>
     <published>2016-09-12T08:50:00.000Z</published>
     <updated>2016-11-15T17:00:02.307Z</updated>
     
