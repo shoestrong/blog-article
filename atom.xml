@@ -346,7 +346,7 @@
     <link href="http://yoursite.com//template/20151102/jquery-nature/"/>
     <id>http://yoursite.com//template/20151102/jquery-nature/</id>
     <published>2015-11-01T16:00:00.000Z</published>
-    <updated>2016-11-16T06:58:12.190Z</updated>
+    <updated>2016-11-16T07:00:27.426Z</updated>
     
     <content type="html"><![CDATA[  <p style="margin: 10px auto; padding-bottom: 10px; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; background-color: rgb(255, 255, 255);">1. 如何创建嵌套的过滤器</p>
   <blockquote style=" border-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-color: rgb(239, 239, 239) rgb(239, 239, 239) rgb(239, 239, 239) rgb(14, 137, 99); padding-top: 0.5em; padding-right: 10px; padding-bottom: 0.5em; margin: 1.5em 10px; color: rgb(51, 51, 51) ; ; ; ; ; ; ; ;; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; background: rgb(249, 249, 249); ">
@@ -516,22 +516,6 @@
    </span><span style="background: white;">$(</span><span style="color: rgb(163, 21, 21); background: white;">'.someClasses:test'</span><span style="background: white;">).doSomething(); </span></span></pre></span></span>
    <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word;"><span style="line-height: 21px; color: black; background: white;"></span></pre>
   </blockquote>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
-  <pre class="" style="margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 28px; background-color: rgb(255, 255, 255);"></pre>
   <p style="margin: 10px auto; padding-bottom: 10px; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; background-color: rgb(255, 255, 255);">24. 如何检查某个元素是否存在</p>
   <blockquote style=" border-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-color: rgb(239, 239, 239) rgb(239, 239, 239) rgb(239, 239, 239) rgb(14, 137, 99); padding-top: 0.5em; padding-right: 10px; padding-bottom: 0.5em; margin: 1.5em 10px; color: rgb(51, 51, 51) ; ; ; ; ; ; ; ;; font-family: georgia, 微软雅黑; font-size: 14px; line-height: 28px; white-space: normal; background: rgb(249, 249, 249); ">
    
